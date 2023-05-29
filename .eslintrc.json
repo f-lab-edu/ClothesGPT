@@ -1,3 +1,66 @@
 {
-  "extends": "next/core-web-vitals"
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "tsconfig.json",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@next/next/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier", "jest"],
+  "rules": {
+    /* img 는 next/image Image 를 사용하여야 함
+     next/image Image 는 width, height의 Prop을 강제하고 있음 */
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/no-floating-promises": "error",
+    "@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }],
+    "@typescript-eslint/no-empty-function": 0,
+    "@typescript-eslint/explicit-function-return-type": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/interface-name-prefix": 0,
+    "@typescript-eslint/no-empty-interface": "error",
+    "@typescript-eslint/no-use-before-define": 0,
+    "@typescript-eslint/no-non-null-assertion": "error",
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+
+    "react/display-name": 0,
+    "react/self-closing-comp": "error",
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "react/no-unescaped-entities": 0,
+    "react/prop-types": 0,
+    "no-undef": 0,
+    "no-constant-condition": 1,
+    "prettier/prettier": [
+      "error",
+      {
+        "bracketSpacing": true,
+        "printWidth": 80,
+        "singleQuote": true,
+        "trailingComma": "none",
+        "tabWidth": 2,
+        "useTabs": false,
+        "bracketSameLine": false
+      }
+    ]
+  }
 }
