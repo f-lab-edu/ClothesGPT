@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
   root: true,
   parserOptions: {
-    project: ['./packages/*/tsconfig.json'],
+    project: ['./packages/*/tsconfig.json', 'typescript-eslint/parser'],
     ecmaFeatures: {
       jsx: true
     },
@@ -84,7 +84,6 @@ module.exports = {
            next/image Image 는 width, height의 Prop을 강제하고 있음 */
         '@next/next/no-img-element': 'off'
       },
-
       settings: {
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx']

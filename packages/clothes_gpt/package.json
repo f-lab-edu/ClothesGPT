@@ -5,12 +5,14 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "pre-commit": "yarn lint && yarn test",
     "dev": "prisma generate && next dev",
     "build": "prisma generate && prisma db push && prisma db seed && next build",
     "start": "next start",
     "lint": "next lint && tsc",
     "test": "jest --passWithNoTests --colors",
-    "test:watch": "jest --passWithNoTests --colors --watch"
+    "test:watch": "jest --passWithNoTests --colors --watch",
+    "prepare": "husky install"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
@@ -46,7 +48,9 @@
     "@testing-library/react-hooks": "^8.0.1",
     "@types/jest": "^29.5.2",
     "jest": "^29.5.0",
-    "jest-environment-jsdom": "^29.5.0"
+    "jest-environment-jsdom": "^29.5.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.2.2"
   },
   "lint-staged": {
     "*.{ts,tsx}": [
