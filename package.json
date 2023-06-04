@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\" --config ./.prettierrc",
-    "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache"
+    "lint": "eslint ./packages --ext .ts,.tsx,.js,.jsx --cache",
+    "test:all": "yarn workspaces run test"
   },
   "workspaces": [
     "packages/*"
