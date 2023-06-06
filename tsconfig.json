@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "allowSyntheticDefaultImports": true,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "downlevelIteration": true,
+    "declaration": true,
+    "baseUrl": ".",
+    "target": "es6",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "paths": {
+      "@/*": ["*"]
+    },
+    "lib": ["dom", "dom.iterable"]
+  },
+
+  "references": [
+    {
+      "path": "packages/clothes_gpt"
+    }
+  ],
+  "exclude": ["packages/**/dist/**"],
+  "include": []
+}

@@ -1,0 +1,6 @@
+dist
+.next
+build
+node_modules
+lib
+prisma

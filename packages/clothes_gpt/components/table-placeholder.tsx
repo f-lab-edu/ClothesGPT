@@ -11,7 +11,7 @@ export default function TablePlaceholder() {
         <RefreshButton />
       </div>
       <div className="divide-y divide-gray-900/5">
-        {[...Array(3)].map((_, i) => (
+        {[...(Array(3) as unknown[])].map((_, i) => (
           <div key={i} className="flex items-center justify-between py-3">
             <div className="flex items-center space-x-4">
               <div className="h-12 w-12 rounded-full bg-gray-200 animate-pulse" />
