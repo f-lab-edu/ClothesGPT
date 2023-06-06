@@ -1,6 +1,9 @@
 {
   "name": "clothes-gpt",
   "private": true,
+  "scripts": {
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\" --config ./.prettierrc"
+  },
   "workspaces": [
     "packages/*"
   ],
