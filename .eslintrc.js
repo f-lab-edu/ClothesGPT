@@ -63,6 +63,7 @@ module.exports = {
       files: ['**/*.ts?(x)'],
       parser: '@typescript-eslint/parser',
       extends: [
+        'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking'
       ],
       parserOptions: {
@@ -72,6 +73,9 @@ module.exports = {
         },
         ecmaVersion: 2018,
         sourceType: 'module'
+      },
+      rules: {
+        '@typescript-eslint/no-empty-function': 0
       }
     },
     {
