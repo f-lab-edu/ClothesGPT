@@ -98,6 +98,12 @@ module.exports = {
       }
     }
   ],
+  settings: {
+    react: {
+      pragma: 'React',
+      version: 'detect'
+    }
+  },
   env: {
     browser: true,
     es6: true,
