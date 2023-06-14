@@ -1,4 +1,5 @@
 import User from '@/components/User';
+import Link from '@node_modules/next/dist/client/link';
 
 
 // Prisma does not support Edge without the Data Proxy currently
@@ -8,9 +9,9 @@ import User from '@/components/User';
 export default function Home() {
 
   return (
-    <main className='relative flex min-h-screen flex-col items-center justify-center'>
-      <User />
-
-    </main>
+    <div>
+      <div>this is main page</div>
+      <Link style={{ textDecoration: 'underline' }} href={'/survey'}>click to go to survey</Link>
+    </div>
   );
 }
