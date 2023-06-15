@@ -1,4 +1,4 @@
-import User from '@/components/User';
+import User from '@/src/components/User';
 
 // Prisma does not support Edge without the Data Proxy currently
 // export const runtime = 'edge'
@@ -6,7 +6,7 @@ import User from '@/components/User';
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
-      <User />
+      {/* <User /> */}
     </main>
   );
 }

@@ -1,8 +1,7 @@
 import React from 'react';
 import prisma from '@/lib/prisma';
 
-export interface UserProps {}
-const User: React.FC<UserProps> = async (props) => {
+const User = async () => {
   const users = await prisma.users.findMany();
 
   return (
