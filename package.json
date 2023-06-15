@@ -6,9 +6,10 @@
     "dev": "next dev",
     "build": "prisma generate && prisma db push  && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --write \"./**/*.{ts,tsx,js,jsx,json}\" --config ./.prettierrc"
   },
-  "prisma" : {
+  "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
@@ -31,6 +32,7 @@
     "yarn": ">= 1.22.17"
   },
   "devDependencies": {
+    "prettier": "^2.8.8",
     "prisma": "^4.15.0"
   }
 }
