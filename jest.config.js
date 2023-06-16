@@ -8,8 +8,8 @@ module.exports = {
   collectCoverageFrom: [
     '**/*.{ts,tsx}',
     '!**/node_modules/**',
-    '!**/types/**/*'
+    '!**/types/**/*',
   ],
   coveragePathIgnorePatterns: ['/node_modules/'],
-  testPathIgnorePatterns: ['/node_modules/']
+  testPathIgnorePatterns: ['/node_modules/'],
 };
