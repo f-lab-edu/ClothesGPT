@@ -27,6 +27,8 @@
     ],
     "paths": {
       "@/src/*": ["./src/*"],
+      "@/prisma/*": ["./prisma/*"],
+      "@/public/*": ["./public/*"],
       "@/app/*": ["./app/*"],
       "@/lib/*": ["./lib/*"]
     }
