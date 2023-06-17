@@ -55,7 +55,7 @@
         "bracketSpacing": true,
         "printWidth": 80,
         "singleQuote": true,
-        "trailingComma": "none",
+        "trailingComma": "all",
         "tabWidth": 2,
         "useTabs": false,
         "bracketSameLine": false,
