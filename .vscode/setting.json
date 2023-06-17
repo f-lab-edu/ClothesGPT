@@ -29,5 +29,15 @@
   "eslint.validate": ["javascript", "typescript"],
   // Prettier
   "prettier.enableDebugLogs": true,
-  "prettier.jsxSingleQuote": false
+  "prettier.jsxSingleQuote": false,
+  // tailwind css setting
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
+  "tailwindCSS.emmetCompletions": true,
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
 }
