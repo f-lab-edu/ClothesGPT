@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Clothesgpt
+
+Clothesgpt is a service that finds out the user's taste in clothes and automatically recommends them.
+
+<br>
+
+## [Demo](https://clothes-gpt-clothes-gpt-git-jan-5-clothesgpt.vercel.app/)(Server is currently down 😓)
+
+<br>
 
 ## Getting Started
 
-First, run the development server:
+<br>
+
+1. Install all dependency modules. Enter the terminal command in the root path of the project.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+yarn install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<br>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. run the development server
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+yarn dev
+```
 
-## Learn More
+<br>
 
-To learn more about Next.js, take a look at the following resources:
+3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<br>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Currently, it is only being developed locally. When the development is completed to some extent, it will be distributed to vercel and the service will be opened.
 
-## Deploy on Vercel
+# technology used
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- ![React](https://img.shields.io/badge/React-61DAF8?logo=React&logoColor=black) v.18.2
+- ![Next.js](https://img.shields.io/badge/Next.js-000000?logo=Next.js&logoColor=white) v.13.4
+- ![Tailwind css](https://img.shields.io/badge/Tailwind.css-FFFFFF?logo=Tailwindcss&logoColor=06B6D4)
+- ![Prisma](https://img.shields.io/badge/Prisma-2D3748?logo=Prisma&logoColor=white)
+- ![Jest](https://img.shields.io/badge/Jest-FFFFFF?logo=Jest&logoColor=C21325)
+- shadcn/ui
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+# Detail
+
+notion link : 🛠️
+
+linear link : 🛠️
+
+# Contact
+
+- github
+
+[Sungbin Ahn github](https://github.com/sungbin38)
+
+[ABlued github](https://github.com/ABlued)
