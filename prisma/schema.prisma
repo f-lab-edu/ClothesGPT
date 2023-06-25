@@ -48,6 +48,8 @@ model chatGptChat {
 model survey {
   id        Int       @id @default(autoincrement())
   question  String
+  active Boolean
+  order Int
   choices   choice[]
   answers   answer[]
 }
