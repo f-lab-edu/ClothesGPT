@@ -50,6 +50,7 @@ model survey {
   question  String
   active Boolean
   order Int
+  gender String?
   choices   choice[]
   answers   answer[]
 }
