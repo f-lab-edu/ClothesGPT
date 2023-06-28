@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.center-body-content {
+  @apply min-h-[100vh] p-[20px] m-auto border-[#ccc] border-solid border-[0.1px];
+}
+
+@media (min-width: 450px) {
+  body {
+    max-width: 450px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    width: 100%;
+    margin: 0;
+  }
+}
