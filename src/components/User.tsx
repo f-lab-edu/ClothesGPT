@@ -5,17 +5,24 @@ import { Avatar } from '@/components/ui/avatar';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
 
-const User = async () => {
+const User = () => {
   // const users = await prisma.users.findMany();
 
   return (
     <>
-      <Button variant={'default'}>{'button'}</Button>
-      <Button variant={'destructive'}>{'button'}</Button>
-      <Button variant={'ghost'}>{'button'}</Button>
-      <Button variant={'link'}>{'button'}</Button>
-      <Button variant={'outline'}>{'button'}</Button>
-      <Button variant={'secondary'}>{'button'}</Button>
+      <Button variant={'default'} className="bg-purple-main">
+        {'purple button'}
+      </Button>
+      <Button variant={'destructive'} className="bg-black-100">
+        {'black button'}
+      </Button>
+      <Button variant={'destructive'} className="bg-white-100 text-black-100">
+        {'white button'}
+      </Button>
+      <Button variant={'ghost'}>{'ghost button'}</Button>
+      <Button variant={'link'}>{'link button'}</Button>
+      <Button variant={'outline'}>{'outline button'}</Button>
+      <Button variant={'secondary'}>{'secondary button'}</Button>
       <Avatar />
       <Label>{'label'}</Label>
       <Card className="h-6 w-6 border-[#eeeeee]" />
