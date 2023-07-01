@@ -49,6 +49,10 @@
     "react/prop-types": 0,
     "no-undef": 0,
     "no-constant-condition": 1,
+    "react/jsx-curly-brace-presence": [
+      "error",
+      { "props": "never", "children": "never" }
+    ],
     "prettier/prettier": [
       "error",
       {
