@@ -25,13 +25,6 @@ export const shadcnPlugin = plugin(
         '--destructive-foreground': '210 40% 98%',
         '--ring': '215 20.2% 65.1%',
         '--radius': '0.5rem',
-        // custom color
-        '--colors-black-100': '0 0% 0%',
-        '--colors-white-100': '0 0% 100%',
-        '--colors-purple-main': '261 100% 64%',
-        '--colors-purple-light': '264 100% 64%',
-        '--colors-gray-dark': '0 0% 90%',
-        '--colors-gray-main': '240 7% 97%',
       },
       '.dark': {
         '--background': '222.2 84% 4.9%',
@@ -110,12 +103,6 @@ export const shadcnPlugin = plugin(
             DEFAULT: 'hsl(var(--card))',
             foreground: 'hsl(var(--card-foreground))',
           },
-          'purple-main': 'hsl(var(--colors-purple-main))',
-          'purple-light': 'hsl(var(--colors-purple-light))',
-          'black-100': 'hsl(var(--colors-black-100))',
-          'white-100': 'hsl(var(--colors-white-100))',
-          'gray-dark': 'hsl(var(--colors-gray-dark))',
-          'gray-main': 'hsl(var(--colors-gray-main))',
         },
         borderRadius: {
           lg: 'var(--radius)',
