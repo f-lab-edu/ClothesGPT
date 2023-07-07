@@ -2,23 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.center-body-content {
-    min-height: 100vh;
-    padding: 20px;
-    margin: auto;
-    border: 0.1px solid #ccc;
-}
-
-@media (min-width: 450px) {
-    body {
-        max-width: 450px;
-        margin: 0 auto;
-    }
-}
-
-@media (max-width: 450px) {
-    body {
-        width: 100%;
-        margin: 0;
-    }
-}
