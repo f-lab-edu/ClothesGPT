@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Avatar } from '@/components/ui/avatar';
 import { Label } from '@/components/ui/label';
 import { Card } from '@/components/ui/card';
+import useCreateChat from '@/modules/common/openai/query/useCreateChat';
 
 const User = () => {
+  const { mutate } = useCreateChat({ onSuccess: (data) => console.log(data) });
+  useEffect(() => {
+    mutate([{ content: '안녕 잘 자고 있니?', role: 'user' }]);
+  }, []);
+
   return (
     <>
       {/* shadcn component usage example */}
