@@ -6,7 +6,7 @@ import User from '@/src/components/User';
 export default function Home() {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
-      {/* <User /> */}
+      <User />
     </main>
   );
 }
