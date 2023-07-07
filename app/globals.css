@@ -2,14 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  body {
-    @apply max-w-[100%] m-0 xs:max-w-[450px] xs:m-0 xs:my-auto;
-  }
-}
-
-@layer components {
-  .center-body-content {
-    @apply p-5 m-auto border-[#ccc] border-solid border-[0.1px];
-  }
-}
