@@ -1,12 +1,10 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
   provider          = "postgresql"
   url               = env("POSTGRES_PRISMA_URL")
-  directUrl         = env("POSTGRES_URL_NON_POOLING")
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
@@ -18,6 +16,7 @@ model users {
   createdAt DateTime   @default(now())
   chat      chat[]
   chatRoom  chatRoom[]
+  answers  answer[]
 }
 
 model chat {
@@ -44,4 +43,31 @@ model chatGptChat {
   content    String   @db.Text
   chatRoom   chatRoom @relation(fields: [chatRoomId], references: [id])
   chatRoomId Int
+}
+
+model survey {
+  id        Int       @id @default(autoincrement())
+  question  String
+  active Boolean
+  order Int
+  gender String?
+  choices   choice[]
+  answers   answer[]
+}
+
+model choice {
+  id       Int      @id @default(autoincrement())
+  value    String
+  survey   survey   @relation(fields: [surveyId], references: [id])
+  surveyId Int
+  answers  answer[]
+}
+
+model answer {
+  id         Int         @id @default(autoincrement())
+  user       users       @relation(fields: [userId], references: [id])
+  userId     Int
+  survey     survey      @relation(fields: [surveyId], references: [id])
+  surveyId   Int
+  choices    choice[]
 }
