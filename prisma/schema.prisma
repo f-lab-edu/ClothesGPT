@@ -1,5 +1,5 @@
 generator client {
-  provider        = "prisma-client-js"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -14,60 +14,62 @@ model users {
   email     String     @unique
   image     String
   createdAt DateTime   @default(now())
+  answers   answer[]
   chat      chat[]
   chatRoom  chatRoom[]
-  answers  answer[]
 }
 
 model chat {
   id          Int      @id @default(autoincrement())
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
-  content     String   @db.Text
-  createdBy   users    @relation(fields: [createdById], references: [id])
+  content     String
   createdById Int
+  createdBy   users    @relation(fields: [createdById], references: [id])
 }
 
 model chatRoom {
   id          Int           @id @default(autoincrement())
   createdAt   DateTime      @default(now())
   title       String        @db.VarChar(250)
-  createdBy   users         @relation(fields: [createdById], references: [id])
   createdById Int
   chatGptChat chatGptChat[]
+  createdBy   users         @relation(fields: [createdById], references: [id])
 }
 
 model chatGptChat {
   id         Int      @id @default(autoincrement())
   createdAt  DateTime @default(now())
-  content    String   @db.Text
-  chatRoom   chatRoom @relation(fields: [chatRoomId], references: [id])
+  content    String
   chatRoomId Int
+  chatRoom   chatRoom @relation(fields: [chatRoomId], references: [id])
 }
 
 model survey {
-  id        Int       @id @default(autoincrement())
-  question  String
-  active Boolean
-  order Int
-  gender String?
-  choices   choice[]
-  answers   answer[]
+  id       Int      @id @default(autoincrement())
+  question String
+  active   Boolean
+  order    Int
+  gender   String?
+  answers  answer[]
+  choices  choice[]
 }
 
 model choice {
   id       Int      @id @default(autoincrement())
   value    String
-  survey   survey   @relation(fields: [surveyId], references: [id])
+  type     String
+  image    String?
   surveyId Int
-  answers  answer[]
+  survey   survey   @relation(fields: [surveyId], references: [id])
+  answers  answer[] @relation("answerTochoice")
 }
 
 model answer {
-  id         Int         @id @default(autoincrement())
-  user       users       @relation(fields: [userId], references: [id])
-  userId     Int
-  survey     survey      @relation(fields: [surveyId], references: [id])
-  surveyId   Int
-  choices    choice[]
+  id       Int      @id @default(autoincrement())
+  userId   Int
+  surveyId Int
+  survey   survey   @relation(fields: [surveyId], references: [id])
+  user     users    @relation(fields: [userId], references: [id])
+  choices  choice[] @relation("answerTochoice")
 }
