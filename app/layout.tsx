@@ -11,12 +11,6 @@ import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-export const metadata = {
-  title: 'clothes gpt',
-  description:
-    'Clothes GPT is an innovative mobile application that revolutionizes the way you discover and shop for clothes. It utilizes advanced artificial intelligence and machine learning algorithms to provide personalized clothing recommendations tailored to your unique style preferences.',
-};
-
 export default function RootLayout({
   children,
 }: {
