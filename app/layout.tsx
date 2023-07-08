@@ -1,12 +1,9 @@
+'use client';
+import ReactQueryClientProvider from '@/components/context/QueryClientProvieder';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 const inter = Inter({ subsets: ['latin'] });
-
-export const metadata = {
-  title: 'clothes gpt',
-  description:
-    'Clothes GPT is an innovative mobile application that revolutionizes the way you discover and shop for clothes. It utilizes advanced artificial intelligence and machine learning algorithms to provide personalized clothing recommendations tailored to your unique style preferences.',
-};
 
 export default function RootLayout({
   children,
@@ -17,6 +14,12 @@ export default function RootLayout({
     <html lang="kr">
       <body className={`${inter.className} center-body-content`}>
         {children}
+        <ReactQueryClientProvider>
+          <>
+            {children}
+            <ReactQueryDevtools initialIsOpen={false} />
+          </>
+        </ReactQueryClientProvider>
       </body>
     </html>
   );
