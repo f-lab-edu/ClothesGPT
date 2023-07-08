@@ -1,3 +1,4 @@
+import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
@@ -16,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body className={`${inter.className} center-body-content`}>
-        {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
