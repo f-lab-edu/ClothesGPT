@@ -8,6 +8,7 @@ const config = {
     './components/**/*.{ts,tsx}',
     './app/**/*.{ts,tsx}',
     './modules/**/*.{ts,tsx}',
+    './src/**/*.{ts,tsx}',
   ],
 } satisfies Config;
 export default config;
