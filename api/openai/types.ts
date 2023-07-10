@@ -1,9 +1,9 @@
 import { CreateChatCompletionResponse } from 'openai';
 
-export type ChatRequest = Message[];
+export type ChatRequest = ChatMessage[];
 
-type Message = { role: ChatGptMessageRole; content: string };
-type ChatGptMessageRole = 'user' | 'assistant';
+export type ChatMessage = { role: ChatGptMessageRole; content: string };
+export type ChatGptMessageRole = 'user' | 'assistant' | 'system';
 
 export interface OpenAIApi {
   chat: (request: ChatRequest) => Promise<CreateChatCompletionResponse>;

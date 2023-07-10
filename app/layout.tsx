@@ -13,7 +13,6 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body className={`${inter.className} center-body-content`}>
-        {children}
         <ReactQueryClientProvider>
           <>
             {children}
