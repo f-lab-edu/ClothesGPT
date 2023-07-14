@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 import BlankBlock from '@/src/components/survey/BlankBlock';
 
@@ -8,6 +9,7 @@ interface ChatProps {
 
 const Chat: React.FC<ChatProps> = (props: ChatProps) => {
   const { image, content } = props;
+
   return (
     <div className="flex flex-row w-60 mb-3">
       {image && (
