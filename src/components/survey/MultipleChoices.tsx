@@ -17,6 +17,10 @@ const MultipleChoices: React.FC<MultipleChoicesInterface> = (props) => {
   const answer = surveyHook.getUserAnswerBySurveyId(surveyId)?.choiceValue;
   const onChoiceClick = (choice: choice) => {
     if (isDisabled) return;
+
+    if (surveyId === 1) {
+      surveyHook.setGender(choice.value === '여자' ? 'female' : 'male');
+    }
     surveyHook.onClickSurveyChoice(choice as choiceType & { survey: survey });
   };
   return (
