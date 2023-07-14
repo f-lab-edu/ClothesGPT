@@ -1,28 +1,14 @@
+'use client';
 import React from 'react';
-import prisma from '@/lib/prisma';
 import BlankBlock from '@/src/components/survey/BlankBlock';
+import { choice } from '@prisma/client';
 
 interface MultipleChoicesInterface {
-  surveyId: number;
+  choices: choice[];
 }
 
-const MultipleChoices: React.FC<MultipleChoicesInterface> = async (
-  props: MultipleChoices,
-) => {
-  const { surveyId } = props;
-  const choices = await prisma.choice.findMany({
-    where: {
-      surveyId: surveyId,
-    },
-    select: {
-      id: true,
-      value: true,
-      survey: true,
-      type: true,
-      image: true,
-    },
-  });
-
+const MultipleChoices: React.FC<MultipleChoicesInterface> = (props) => {
+  const { choices } = props;
   return (
     <div className="flex flex-row mb-2 flex-wrap">
       <BlankBlock />
