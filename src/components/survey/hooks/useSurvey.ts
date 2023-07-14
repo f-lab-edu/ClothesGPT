@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { choice as choiceType, survey } from '@prisma/client';
 
 interface Props {
@@ -21,10 +21,11 @@ const useSurvey = (props: Props) => {
   const [userSelectedAnswers, setUserSelectedAnswers] = useState<
     userSelectedAnswer[]
   >([]);
+  const [showSurveys, setShowSurveys] = useState<survey[]>([]);
+  const [gender, setGender] = useState('all');
 
   // refs
   // variables
-  const showSurveys = surveys.filter((survey) => survey.order <= step);
   const currentSurvey = showSurveys.find((survey) => survey.order === step);
 
   // functions
@@ -51,12 +52,21 @@ const useSurvey = (props: Props) => {
     return !!userAnswer;
   };
   // useEffects
+  useEffect(() => {
+    const filteredSurveys = surveys.filter(
+      (survey) =>
+        survey.order <= step &&
+        (survey.gender === gender || survey.gender === 'all'),
+    );
+    setShowSurveys(filteredSurveys);
+  }, [step, gender]);
 
   return {
     showSurveys,
     onClickSurveyChoice,
     getUserAnswerBySurveyId,
     isButtonDisabled,
+    setGender,
   };
 };
 export type UseSurveyReturnType = ReturnType<typeof useSurvey>;
