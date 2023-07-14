@@ -19,7 +19,6 @@ const Page = async () => {
       },
     },
   });
-
   return <SurveyPage surveys={surveys} />;
 };
 
