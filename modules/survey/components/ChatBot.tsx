@@ -2,18 +2,17 @@
 import React from 'react';
 import {
   MainContainer,
-  ChatContainer,
   MessageList,
   Message,
   MessageInput,
   TypingIndicator,
+  ChatContainer,
 } from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { useChat } from '@/modules/common/hooks/useChat';
+import { useChatWithChatGPT } from '@/modules/common/hooks/useChatWithChatGPT';
 
-const ChatBot = () => {
-  const { messages, send, typing } = useChat();
-  console.log('typing', typing);
+const ChattingContainer = () => {
+  const { messages, send, typing } = useChatWithChatGPT({});
 
   return (
     <div className="relative h-[800px] w-[700px]">
@@ -40,4 +39,4 @@ const ChatBot = () => {
   );
 };
 
-export default ChatBot;
+export default ChattingContainer;
