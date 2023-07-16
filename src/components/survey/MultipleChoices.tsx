@@ -1,9 +1,9 @@
 'use client';
-import React from 'react';
 import BlankBlock from '@/src/components/survey/BlankBlock';
 import { choice } from '@prisma/client';
 import { UseSurveyReturnType } from '@/src/components/survey/hooks/useSurvey';
 import { choice as choiceType, survey } from '.prisma/client';
+import { cn } from '@/lib/utils';
 
 interface MultipleChoicesInterface {
   choices: choice[];
@@ -11,12 +11,14 @@ interface MultipleChoicesInterface {
   surveyId: number;
 }
 
-const MultipleChoices: React.FC<MultipleChoicesInterface> = (props) => {
+const MultipleChoices = (props: MultipleChoicesInterface) => {
   const { choices, surveyHook, surveyId } = props;
   const isDisabled = surveyHook.isButtonDisabled(surveyId);
   const answer = surveyHook.getUserAnswerBySurveyId(surveyId)?.choiceValue;
   const onChoiceClick = (choice: choice) => {
-    if (isDisabled) return;
+    if (isDisabled) {
+      return;
+    }
 
     if (surveyId === 1) {
       surveyHook.setGender(choice.value === '여자' ? 'female' : 'male');
@@ -33,14 +35,17 @@ const MultipleChoices: React.FC<MultipleChoicesInterface> = (props) => {
               disabled={isDisabled}
               onClick={() => onChoiceClick(choice)}
               key={choice.value}
-              className={
-                isDisabled
-                  ? choice.value === answer
-                    ? 'mr-2 bg-blue-500 text-white font-semibold py-2 px-4 border border-blue-500 rounded'
-                    : 'mr-2 bg-transparent text-blue-700 font-semibold py-2 px-4 border border-blue-500 rounded'
-                  : 'mr-2 bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4' +
-                    ' border border-blue-500 hover:border-transparent rounded'
-              }
+              className={cn(
+                'mr-2 py-2 px-4 border border-blue-500 rounded font-semibold', // 공통 스타일링
+                {
+                  'bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white hover:border-transparent':
+                    !isDisabled, // 유저가 선택하기전의 choice
+                  'bg-blue-500 text-white ':
+                    isDisabled && choice.value === answer, // 유저가 선택한 choice
+                  'bg-transparent text-blue-700 ':
+                    isDisabled && choice.value !== answer, // 유저가 선택하지 않은 choice
+                },
+              )}
             >
               {choice.value}
             </button>
@@ -55,8 +60,7 @@ const MultipleChoices: React.FC<MultipleChoicesInterface> = (props) => {
               {idx % 2 === 0 && idx > 1 && <BlankBlock />}
               <div key={choice.value}>
                 <img
-                  className="rounded-2xl mr-2"
-                  style={{ width: 150, height: 180 }}
+                  className="rounded-2xl mr-2 w-[150px] h-[180px]"
                   src={choice.image}
                   alt={choice.value}
                 />
