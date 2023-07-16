@@ -1,6 +1,7 @@
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import { Inter } from 'next/font/google';
+import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
