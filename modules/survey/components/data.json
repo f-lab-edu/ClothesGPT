@@ -1,0 +1,107 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "question": "자신의 성별을 선택해주세요.",
+      "choiceType": "button",
+      "choices": [
+        {
+          "id": "male",
+          "value": { "gender": "male" },
+          "tag": { "gender": "male" }
+        },
+        {
+          "id": "female",
+          "value": { "gender": "female" },
+          "tag": { "gender": "female" }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "question": "본인이 찾고 계신 옷의 스타일을 클릭하세요!(남자)",
+      "tag": {
+        "gender": "male"
+      },
+      "choiceType": "image",
+      "choices": [
+        {
+          "id": 1,
+          "value": { "style": "미니멀" },
+          "imageSrc": "https://m.boom-style.com/web/product/medium/202212/a80dc14f3ee0625d309a2253541581f8.jpg"
+        },
+        {
+          "id": 2,
+          "value": { "style": "아메카지" },
+          "imageSrc": "https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/d86D/image/bm4DuImYgBTsZYgnHAUgUVEiOIo.jpg"
+        },
+        {
+          "id": 3,
+          "value": { "style": "오피스" },
+          "imageSrc": "https://post-phinf.pstatic.net/MjAxOTA1MDhfOTUg/MDAxNTU3Mjc2NDg3MzU4.eKTJDrf6GGCc24V2LBx1dhbgDS6YUl7AZGYEgj_RuWog.YJSjSPKmAogIoJ5SRg9WeUBQYuTF1mw819YDDNSBHfIg.JPEG/7.jpg"
+        },
+        {
+          "id": 4,
+          "value": { "style": "힙합" },
+          "imageSrc": "https://openimage.interpark.com/goods_image_big/2/0/6/7/8389792067_l.jpg"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "question": "본인이 찾고 계신 옷의 스타일을 클릭하세요!(여자)",
+      "tag": {
+        "gender": "female"
+      },
+      "choiceType": "image",
+      "choices": [
+        {
+          "id": 1,
+          "value": { "style": "미니멀" },
+          "imageSrc": "https://m.boom-style.com/web/product/medium/202212/a80dc14f3ee0625d309a2253541581f8.jpg"
+        },
+        {
+          "id": 2,
+          "value": { "style": "아메카지" },
+          "imageSrc": "https://img1.daumcdn.net/thumb/R1280x0/?fname=http://t1.daumcdn.net/brunch/service/user/d86D/image/bm4DuImYgBTsZYgnHAUgUVEiOIo.jpg"
+        },
+        {
+          "id": 3,
+          "value": { "style": "오피스" },
+          "imageSrc": "https://post-phinf.pstatic.net/MjAxOTA1MDhfOTUg/MDAxNTU3Mjc2NDg3MzU4.eKTJDrf6GGCc24V2LBx1dhbgDS6YUl7AZGYEgj_RuWog.YJSjSPKmAogIoJ5SRg9WeUBQYuTF1mw819YDDNSBHfIg.JPEG/7.jpg"
+        },
+        {
+          "id": 4,
+          "value": { "style": "힙합" },
+          "imageSrc": "https://openimage.interpark.com/goods_image_big/2/0/6/7/8389792067_l.jpg"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "question": "본인의 체형을 선택하세요!",
+      "tag": {
+        "gender": "male"
+      },
+      "choiceType": "button",
+      "choices": [
+        {
+          "id": 1,
+          "value": { "style": "역삼각형 체형" }
+        },
+        {
+          "id": 2,
+          "value": { "style": "다이아몬드 체형" }
+        },
+        {
+          "id": 3,
+          "value": { "style": "원형 체형" }
+        },
+        {
+          "id": 4,
+          "value": { "style": "힙합" }
+        }
+      ]
+    }
+  ]
+}
