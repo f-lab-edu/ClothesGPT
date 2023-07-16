@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import BlankBlock from '@/src/components/survey/BlankBlock';
 
 interface ChatProps {
@@ -7,7 +6,7 @@ interface ChatProps {
   content: string;
 }
 
-const Chat: React.FC<ChatProps> = (props: ChatProps) => {
+const Chat = (props: ChatProps) => {
   const { image, content } = props;
 
   return (
