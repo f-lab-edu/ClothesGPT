@@ -1,4 +1,3 @@
-import React from 'react';
 import prisma from '@/lib/prisma';
 import SurveyPage from '@/src/components/survey/SurveyPage';
 

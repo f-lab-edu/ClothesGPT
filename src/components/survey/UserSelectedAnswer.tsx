@@ -1,4 +1,3 @@
-import React from 'react';
 import { UseSurveyReturnType } from '@/src/components/survey/hooks/useSurvey';
 
 interface UserSelectedAnswerProps {
@@ -6,10 +5,12 @@ interface UserSelectedAnswerProps {
   surveyId: number;
 }
 
-const UserSelectedAnswer: React.FC<UserSelectedAnswerProps> = (props) => {
+const UserSelectedAnswer = (props: UserSelectedAnswerProps) => {
   const { surveyHook, surveyId } = props;
   const answer = surveyHook.getUserAnswerBySurveyId(surveyId);
-  if (!answer) return null;
+  if (!answer) {
+    return null;
+  }
   return (
     <div className="flex justify-end">
       <button

@@ -22,13 +22,24 @@
     "es6": true,
     "jest": true
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier", "jest"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "prettier",
+    "jest"
+  ],
   "rules": {
     /* img 는 next/image Image 를 사용하여야 함
      next/image Image 는 width, height의 Prop을 강제하고 있음 */
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-floating-promises": "error",
-    "@typescript-eslint/no-unused-vars": ["warn", { "args": "none" }],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "args": "none"
+      }
+    ],
     "@typescript-eslint/no-empty-function": 0,
     "@typescript-eslint/explicit-function-return-type": 0,
     "@typescript-eslint/no-var-requires": 0,
@@ -43,7 +54,14 @@
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [
       "error",
-      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+      {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
     ],
     "react/no-unescaped-entities": 0,
     "react/prop-types": 0,
@@ -51,7 +69,10 @@
     "no-constant-condition": 1,
     "react/jsx-curly-brace-presence": [
       "error",
-      { "props": "never", "children": "never" }
+      {
+        "props": "never",
+        "children": "never"
+      }
     ],
     "prettier/prettier": [
       "error",
@@ -65,6 +86,7 @@
         "bracketSameLine": false,
         "semi": true
       }
-    ]
+    ],
+    "curly": "error"
   }
 }

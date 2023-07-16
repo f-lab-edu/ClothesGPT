@@ -1,11 +1,9 @@
 'use client';
-import React from 'react';
 import Chat from '@/src/components/survey/Chat';
-import SurveyItem, {
-  SurveyWithChoice,
-} from '@/src/components/survey/SurveyItem';
 import { answer, survey, users } from '@prisma/client';
 import useSurvey from '@/src/components/survey/hooks/useSurvey';
+import { SurveyWithChoice } from '@/types';
+import SurveyItem from '@/src/components/survey/SurveyItem';
 
 export type UserWithAnswersType = users & { answers: answer[] };
 
@@ -13,7 +11,7 @@ interface SurveyPageProps {
   surveys: survey[];
 }
 
-const SurveyPage: React.FC<SurveyPageProps> = (props) => {
+const SurveyPage = (props: SurveyPageProps) => {
   const { surveys } = props;
   const surveyHook = useSurvey({ surveys });
 
