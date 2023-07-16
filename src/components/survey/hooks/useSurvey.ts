@@ -37,7 +37,9 @@ const useSurvey = (props: Props) => {
       order: choice.survey.order,
     };
     setUserSelectedAnswers((prevState) => [...prevState, answer]);
-    if (step === surveys.length) return;
+    if (step === surveys.length) {
+      return;
+    }
     setStep((prevState) => prevState + 1);
   };
   const getUserAnswerBySurveyId = (surveyId: number) => {
