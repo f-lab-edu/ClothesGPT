@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import SurveyPage from '@/src/components/survey/SurveyPage';
+import SurveyPage from '@/modules/survey/components/SurveyPage';
 
 const Page = async () => {
   const surveys = await prisma.survey.findMany({
