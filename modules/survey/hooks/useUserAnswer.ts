@@ -2,7 +2,7 @@ import { ChoiceVO, SurveyVO } from '@/modules/common/types/SurveyMessage';
 import { haveAllKey } from '@/types/object/compareObject';
 import { useState } from 'react';
 
-interface UseUserAnswer {
+export interface UseUserAnswer {
   select: (choice: ChoiceVO) => void;
   next: () => SurveyVO;
   submit: () => Record<string, string>;
