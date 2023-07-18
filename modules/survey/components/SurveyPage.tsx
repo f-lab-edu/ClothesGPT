@@ -7,7 +7,7 @@ import {
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
-import surveyData from './data.json';
+import { data } from '../hooks/tests/surveyMock.json';
 import { convertSurveyComponent } from '@/modules/common/utils/convertSurveyComponent';
 import { SurveyVO } from '@/modules/common/types/SurveyMessage';
 import { useEffect, useState } from 'react';
@@ -20,7 +20,6 @@ interface SurveyPageProps {
 
 const SurveyPage = (props: SurveyPageProps) => {
   const { surveys } = props;
-  const { data } = surveyData;
   const [isSSR, setIsSSR] = useState(true);
   const [open, setOpen] = useState(false);
   const { messages, onClickSurveyChoice, isDisable } = useSurvey({
