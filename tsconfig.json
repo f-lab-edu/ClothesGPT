@@ -26,7 +26,13 @@
       }
     ],
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@/app": ["./app"],
+      "@/components": ["./components"],
+      "@/lib": ["./lib"],
+      "@/modules": ["./modules"],
+      "@/prisma": ["./prisma"],
+      "@/types": ["./types"]
     }
   },
   "include": [
