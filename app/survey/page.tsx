@@ -1,5 +1,5 @@
 import prisma from '@/lib/prisma';
-import SurveyPage from '@/modules/survey/components/SurveyPage';
+import SurveyContainer from '@/modules/survey/components/SurveyContainer';
 
 const Page = async () => {
   const surveys = await prisma.survey.findMany({
@@ -18,7 +18,7 @@ const Page = async () => {
       },
     },
   });
-  return <SurveyPage surveys={surveys} />;
+  return <SurveyContainer surveys={surveys} />;
 };
 
 export default Page;

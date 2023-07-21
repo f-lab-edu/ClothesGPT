@@ -1,13 +1,14 @@
-import { act } from '@testing-library/react-hooks';
-import { renderHook, RenderHookResult } from '@testing-library/react';
-import { data } from './surveyMock.json';
+import { getSurveyMessageMock } from '@/__tests__/mock/survey/types/surveyMessageMock';
 import {
   ChoiceVO,
   SurveyMessage,
   SurveyVO,
 } from '@/modules/common/types/SurveyMessage';
-import useSurvey, { UseSurvey } from '../useSurvey';
-import { getSurveyMessageMock } from '@/__tests__/mock/survey/types/surveyMessageMock';
+import { renderHook, RenderHookResult } from '@testing-library/react';
+import { act } from '@testing-library/react-hooks';
+import useQuestion, { UseSurvey } from '../useSurvey';
+import { data } from './surveyMock.json';
+
 // TODO : 설문이 완료되었을 때의 동작 테스트 필요
 describe('Given : UseSurvey ', () => {
   const surveyMessageMock: SurveyMessage[] = data.map((_) => {
@@ -17,7 +18,7 @@ describe('Given : UseSurvey ', () => {
   let renderResult: RenderHookResult<UseSurvey, null>['result'];
   beforeEach(() => {
     const { result } = renderHook(() =>
-      useSurvey({ surveys: data as SurveyVO[] }),
+      useQuestion({ surveys: data as SurveyVO[] }),
     );
     renderResult = result;
   });
