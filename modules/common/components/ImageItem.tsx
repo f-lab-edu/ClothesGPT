@@ -1,14 +1,14 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 
-interface Props {
+interface ImageItemProps {
   imageSrc: string;
   value: string;
   className?: string;
   onClick?: (...args: any) => void;
 }
 
-function ImageItem({ imageSrc, value, onClick, className }: Props) {
+function ImageItem({ imageSrc, value, onClick, className }: ImageItemProps) {
   return (
     <div
       className={cn('flex flex-col w-[80px] items-center', className)}
