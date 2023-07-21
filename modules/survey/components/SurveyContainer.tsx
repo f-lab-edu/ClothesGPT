@@ -1,28 +1,25 @@
 'use client';
-import { answer, survey, users } from '@prisma/client';
-import useSurvey from '@/modules/survey/hooks/useSurvey';
+
+import { useEffect, useState } from 'react';
+import { SurveyVO } from '@/modules/common/types/SurveyMessage';
+import { Survey } from '@/modules/common/utils/convertSurveyComponent';
 import {
   ChatContainer,
   MainContainer,
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
+import { answer, survey, users } from '@prisma/client';
 import { data } from '../hooks/tests/surveyMock.json';
-import { convertSurveyComponent } from '@/modules/common/utils/convertSurveyComponent';
-import { SurveyVO } from '@/modules/common/types/SurveyMessage';
-import { useEffect, useState } from 'react';
+import useQuestion from '../hooks/useSurvey';
 import Trail from './Trail';
+
 export type UserWithAnswersType = users & { answers: answer[] };
 
-interface SurveyPageProps {
-  surveys: survey[];
-}
-
-const SurveyPage = (props: SurveyPageProps) => {
-  const { surveys } = props;
+const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
   const [isSSR, setIsSSR] = useState(true);
   const [open, setOpen] = useState(false);
-  const { messages, onClickSurveyChoice, isDisable } = useSurvey({
+  const { messages, onClickSurveyChoice, isDisable } = useQuestion({
     surveys: data as SurveyVO[],
   });
 
@@ -46,14 +43,14 @@ const SurveyPage = (props: SurveyPageProps) => {
               <MessageList scrollBehavior="smooth">
                 {messages.map((message, i) => {
                   return (
-                    <Trail key={i} open={open}>
+                    <Trail key={message.survey.id} open={open}>
                       <Message model={message}>
                         <Message.CustomContent>
-                          {convertSurveyComponent({
-                            survey: message.survey,
-                            disabled: isDisable(i),
-                            onClick: onClickSurveyChoice,
-                          })}
+                          <Survey
+                            survey={message.survey}
+                            disabled={isDisable(i)}
+                            onClick={onClickSurveyChoice}
+                          />
                         </Message.CustomContent>
                       </Message>
                     </Trail>
@@ -70,4 +67,4 @@ const SurveyPage = (props: SurveyPageProps) => {
   return null;
 };
 
-export default SurveyPage;
+export default SurveyContainer;

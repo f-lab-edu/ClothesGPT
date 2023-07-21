@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useAnswer } from './useAnswer';
 import {
   ChoiceVO,
   SurveyMessage,
   SurveyVO,
 } from '@/modules/common/types/SurveyMessage';
 import { isEmpty } from '@/modules/common/utils/object/isEmpty';
+import { useAnswer } from './useAnswer';
 
 export interface UseSurvey {
   messages: SurveyMessage[];
@@ -14,7 +14,7 @@ export interface UseSurvey {
   replay: () => void;
 }
 
-const useSurvey = ({ surveys }: { surveys: SurveyVO[] }) => {
+const useQuestion = ({ surveys }: { surveys: SurveyVO[] }) => {
   const [step, setStep] = useState(0);
   const [messages, setMessages] = useState<SurveyMessage[]>([]);
   const userAnswer = useAnswer(surveys);
@@ -60,4 +60,4 @@ const useSurvey = ({ surveys }: { surveys: SurveyVO[] }) => {
   };
 };
 
-export default useSurvey;
+export default useQuestion;

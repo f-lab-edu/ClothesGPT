@@ -4,7 +4,7 @@ import { SurveyVO } from '../types/SurveyMessage';
 import SurveyItem from '../components/SurveyItem';
 import ImageItem from '../components/ImageItem';
 
-export function convertSurveyComponent({
+export function Survey({
   survey,
   disabled,
   onClick,
