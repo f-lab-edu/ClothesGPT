@@ -1,4 +1,4 @@
-import { PrismaClient, survey, choice } from '@prisma/client';
+import { choice, PrismaClient, survey } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
