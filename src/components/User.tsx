@@ -1,7 +1,7 @@
 import React from 'react';
+import { DarkModeButton } from '@/components/custom/button/DarkModeButton';
 import { SpeechBubble } from '@/components/custom/Chat';
 import { Button } from '@/components/ui/button';
-import { DarkModeButton } from '@/components/custom/button/DarkModeButton';
 
 const User = () => {
   return (
