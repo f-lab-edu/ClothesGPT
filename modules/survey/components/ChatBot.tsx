@@ -1,15 +1,17 @@
 'use client';
+
 import React from 'react';
 import {
+  ChatContainer,
   MainContainer,
-  MessageList,
   Message,
   MessageInput,
+  MessageList,
   TypingIndicator,
-  ChatContainer,
 } from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { useChatWithChatGPT } from '@/modules/common/hooks/useChatWithChatGPT';
+import { v4 as uuidv4 } from 'uuid';
 
 const ChattingContainer = () => {
   const { messages, send, typing } = useChatWithChatGPT({});
@@ -25,7 +27,7 @@ const ChattingContainer = () => {
             }
           >
             {messages.map((message, i) => {
-              return <Message key={i} model={message} />;
+              return <Message key={uuidv4()} model={message} />;
             })}
           </MessageList>
           <MessageInput
