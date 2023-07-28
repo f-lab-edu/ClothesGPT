@@ -49,8 +49,8 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
   function handleReceive(message: CustomMessageModel) {
     if (message) {
       setMessages((prev) => [...prev, message]);
-      setTyping(false);
     }
+    setTyping(false);
   }
   function handleError(error: AxiosError) {
     setTyping(false);
