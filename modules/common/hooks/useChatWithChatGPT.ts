@@ -15,8 +15,8 @@ interface Parameter {
 
 export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
   const chatGPT = useChatGPT({
-    onSuccess: handleReceive,
-    onError: handleError,
+    onSuccess: onReceive,
+    onError: onError,
   });
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState<CustomMessageModel[]>(
@@ -35,7 +35,7 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
     sender: 'user',
   };
 
-  const handleSend = async (message: string) => {
+  const onSend = async (message: string) => {
     const userMessage: CustomMessageModel = {
       ...userOptions,
       message,
@@ -46,16 +46,16 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
     chatGPT.send([...messages, userMessage]);
   };
 
-  function handleReceive(message: CustomMessageModel) {
+  function onReceive(message: CustomMessageModel) {
     if (message) {
       setMessages((prev) => [...prev, message]);
+      setTyping(false);
     }
-    setTyping(false);
   }
-  function handleError(error: AxiosError) {
+  function onError(error: AxiosError) {
     setTyping(false);
     console.log(error);
   }
 
-  return { messages, typing, send: handleSend };
+  return { messages, typing, send: onSend };
 };
