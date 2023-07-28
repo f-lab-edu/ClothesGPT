@@ -3,7 +3,6 @@
 import ReactQueryClientProvider from '@/components/context/QueryClientProvieder';
 import './globals.css';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-
 import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 import { Inter } from 'next/font/google';
@@ -20,17 +19,14 @@ export default function RootLayout({
     <html lang="kr">
       <body className={`${inter.className} center-body-content`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-           <ReactQueryClientProvider>
-          <>
-            {children}
-            <ReactQueryDevtools initialIsOpen={false} />
-          </>
-        </ReactQueryClientProvider>
+          <ReactQueryClientProvider>
+            <>
+              {children}
+              <ReactQueryDevtools initialIsOpen={false} />
+            </>
+          </ReactQueryClientProvider>
         </ThemeProvider>
       </body>
     </html>
   );
 }
-
-
-
