@@ -1,4 +1,5 @@
 import ChattingContainer from '@/modules/survey/components/ChatBot';
+
 // Prisma does not support Edge without the Data Proxy currently
 // export const runtime = 'edge'
 

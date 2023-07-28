@@ -1,10 +1,12 @@
 'use client';
+
 import React from 'react';
 import {
-  QueryClientProvider,
-  QueryClient,
   QueryCache,
+  QueryClient,
+  QueryClientProvider,
 } from '@tanstack/react-query';
+
 function ReactQueryClientProvider({ children }: { children: React.ReactNode }) {
   const queryClient = new QueryClient({
     queryCache: new QueryCache({
