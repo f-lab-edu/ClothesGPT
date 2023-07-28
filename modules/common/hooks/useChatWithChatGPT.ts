@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
+import { AxiosError } from 'axios';
 import { CustomMessageModel, MessageOptions } from '../types/Message';
 import { useChatGPT } from './useChatGPT';
 
@@ -13,7 +14,10 @@ interface Parameter {
 }
 
 export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
-  const chatGPT = useChatGPT();
+  const chatGPT = useChatGPT({
+    onSuccess: handleReceive,
+    onError: handleError,
+  });
   const [typing, setTyping] = useState(false);
   const [messages, setMessages] = useState<CustomMessageModel[]>(
     initMessage ?? [
@@ -30,12 +34,6 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
     position: 'last',
     sender: 'user',
   };
-  useEffect(() => {
-    if (chatGPT.getData.message) {
-      setMessages((prev) => [...prev, chatGPT.getData]);
-      setTyping(false);
-    }
-  }, [chatGPT.getData]);
 
   const handleSend = async (message: string) => {
     const userMessage: CustomMessageModel = {
@@ -47,6 +45,17 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
     setTyping(true);
     chatGPT.send([...messages, userMessage]);
   };
+
+  function handleReceive(message: CustomMessageModel) {
+    if (message) {
+      setMessages((prev) => [...prev, message]);
+      setTyping(false);
+    }
+  }
+  function handleError(error: AxiosError) {
+    setTyping(false);
+    console.log(error);
+  }
 
   return { messages, typing, send: handleSend };
 };
