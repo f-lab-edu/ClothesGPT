@@ -46,23 +46,24 @@ model chatGptChat {
 }
 
 model survey {
-  id       Int      @id @default(autoincrement())
-  question String
-  active   Boolean
-  order    Int
-  gender   String?
-  answers  answer[]
-  choices  choice[]
+  id            Int             @id @default(autoincrement())
+  question      String
+  active        Boolean
+  order         Int
+  answers       answer[]
+  choices       choice[]
+  tagsOnSurveys tagsOnSurveys[]
 }
 
 model choice {
-  id       Int      @id @default(autoincrement())
-  value    String
-  type     String
-  image    String?
-  surveyId Int
-  survey   survey   @relation(fields: [surveyId], references: [id])
-  answers  answer[] @relation("answerTochoice")
+  id            Int             @id @default(autoincrement())
+  value         String
+  type          String
+  image         String?
+  surveyId      Int
+  survey        survey          @relation(fields: [surveyId], references: [id])
+  answers       answer[]        @relation("answerTochoice")
+  tagsOnChoices tagsOnChoices[]
 }
 
 model answer {
@@ -72,4 +73,29 @@ model answer {
   survey   survey   @relation(fields: [surveyId], references: [id])
   user     users    @relation(fields: [userId], references: [id])
   choices  choice[] @relation("answerTochoice")
+}
+
+model tag {
+  id            Int             @id @default(autoincrement())
+  gender        String?
+  tagsOnSurveys tagsOnSurveys[]
+  tagsOnChoices tagsOnChoices[]
+}
+
+model tagsOnSurveys {
+  survey   survey @relation(fields: [surveyId], references: [id])
+  surveyId Int
+  tag      tag    @relation(fields: [tagId], references: [id])
+  tagId    Int
+
+  @@id([surveyId, tagId])
+}
+
+model tagsOnChoices {
+  choice   choice @relation(fields: [choiceId], references: [id])
+  choiceId Int
+  tag      tag    @relation(fields: [tagId], references: [id])
+  tagId    Int
+
+  @@id([choiceId, tagId])
 }
