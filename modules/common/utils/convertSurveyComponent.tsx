@@ -1,8 +1,8 @@
-import { Chat } from '@/components/custom/Button/Chat';
-import { Button } from '@/components/ui/button';
-import { SurveyVO } from '../types/SurveyMessage';
-import SurveyItem from '../components/SurveyItem';
+import { Chat } from '@/components/custom/Badge/Chat';
+import ButtonWithClickState from '@/components/custom/Button/ButtonWithClickState';
 import ImageItem from '../components/ImageItem';
+import SurveyItem from '../components/SurveyItem';
+import { SurveyVO } from '../types/SurveyMessage';
 
 export function Survey({
   survey,
@@ -12,7 +12,7 @@ export function Survey({
   survey: SurveyVO;
   disabled: boolean;
   onClick?: (...args: any) => void;
-}): React.ReactNode {
+}): JSX.Element {
   switch (survey.choiceType) {
     case 'chat':
       return (
@@ -25,13 +25,13 @@ export function Survey({
         <SurveyItem question={survey.question}>
           {survey.choices.map((choice, i) => {
             return (
-              <Button
+              <ButtonWithClickState
                 key={choice.id}
                 disabled={disabled}
                 onClick={() => onClick?.(survey.choices[i])}
               >
                 {Object.values(choice.value)[0]}
-              </Button>
+              </ButtonWithClickState>
             );
           })}
         </SurveyItem>
@@ -55,6 +55,6 @@ export function Survey({
         </SurveyItem>
       );
     default:
-      return null;
+      return <></>;
   }
 }

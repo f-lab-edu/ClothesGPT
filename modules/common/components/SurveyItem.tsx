@@ -1,5 +1,6 @@
-import { Chat } from '@/components/custom/Button/Chat';
 import React from 'react';
+import { Chat } from '@/components/custom/Badge/Chat';
+
 interface SurveyItemProps {
   question: string;
   children: React.ReactNode;

@@ -22,13 +22,7 @@
     "es6": true,
     "jest": true
   },
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "react-hooks",
-    "prettier",
-    "jest"
-  ],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier", "jest"],
   "rules": {
     /* img 는 next/image Image 를 사용하여야 함
      next/image Image 는 width, height의 Prop을 강제하고 있음 */
@@ -55,12 +49,7 @@
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     ],
     "react/no-unescaped-entities": 0,
