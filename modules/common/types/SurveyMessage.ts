@@ -1,10 +1,10 @@
-import { ChoiceComponentType } from '@/types/Survey';
 import {
   MessageModel,
   MessagePayload,
   MessageType,
 } from '@chatscope/chat-ui-kit-react';
 import { MessageDirection } from '@chatscope/chat-ui-kit-react/src/types/unions';
+import { ChoiceComponentType } from '@/types/Survey';
 
 export interface ChoiceVO {
   id: string;

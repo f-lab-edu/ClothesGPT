@@ -1,7 +1,7 @@
-import { ChoiceVO, SurveyVO } from '@/modules/common/types/SurveyMessage';
-import { hasAllKey } from '@/types/object/hasAllKey';
 import { useState } from 'react';
+import { ChoiceVO, SurveyVO } from '@/modules/common/types/SurveyMessage';
 import { useImmer } from 'use-immer';
+import { hasAllKey } from '@/types/object/hasAllKey';
 
 export interface UseAnswer {
   select: (choice: ChoiceVO) => void;

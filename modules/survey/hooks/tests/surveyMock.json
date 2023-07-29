@@ -7,12 +7,12 @@
       "choices": [
         {
           "id": "male",
-          "value": { "gender": "male" },
+          "value": { "gender": "남자" },
           "tag": { "gender": "male" }
         },
         {
           "id": "female",
-          "value": { "gender": "female" },
+          "value": { "gender": "여자" },
           "tag": { "gender": "female" }
         }
       ]

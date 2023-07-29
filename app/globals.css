@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components{
+ .cs-message__content .cs-message--incoming .cs-message__content {
+    @apply !bg-violet-900
+  }
+}
