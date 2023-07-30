@@ -23,18 +23,10 @@ export const useAnswer = (surveys: QuestionVO[]): UseAnswer => {
   });
 
   const select = (choice: ChoiceVO) => {
-    if (choice.tag) {
-      updateAnswer((draft) => {
-        draft.tags = { ...draft.tags, ...choice.tag };
-      });
-    } else {
-      updateAnswer((draft) => {
-        draft = {
-          tags: { ...draft.tags, ...choice.tag },
-          value: { ...draft.value, ...choice.value },
-        };
-      });
-    }
+    updateAnswer((draft) => {
+      draft.tags = { ...draft.tags, ...choice.tag };
+      draft.value = { ...draft.value, ...choice.value };
+    });
     setOrder((prev) => prev + 1);
   };
 

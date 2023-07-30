@@ -38,13 +38,17 @@ const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
       <div className="relative h-[800px] w-[700px]">
-        <MainContainer>
+        <MainContainer className="!border-transparent cs-message-list__scroll-wrapper">
           <ChatContainer>
             <MessageList scrollBehavior="smooth">
               {messages.map((message, i) => {
                 return (
                   <Trail key={message.survey.id} open={open}>
-                    <Message model={message} type="custom">
+                    <Message
+                      model={message}
+                      type="custom"
+                      className="cs-message cs-message--incoming cs-message__content"
+                    >
                       <Message.CustomContent>
                         <Survey
                           survey={message.survey}
@@ -63,6 +67,8 @@ const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
     </main>
   );
   // }
+
+  return null;
 };
 
 export default SurveyContainer;

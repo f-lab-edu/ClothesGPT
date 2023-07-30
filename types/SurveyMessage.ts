@@ -9,6 +9,7 @@ import { ChoiceComponentType } from '@/types/Survey';
 export interface ChoiceVO {
   id: string;
   imageSrc?: string;
+  color?: string;
   value: Record<string, string>;
   tag?: Record<string, string>;
 }

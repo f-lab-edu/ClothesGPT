@@ -1,4 +1,4 @@
-export type ChoiceComponentType = 'chat' | 'button' | 'image';
+export type ChoiceComponentType = 'chat' | 'button' | 'image' | 'color';
 
 export interface Choice {
   id: string;

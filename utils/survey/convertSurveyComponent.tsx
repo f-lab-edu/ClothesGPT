@@ -1,8 +1,9 @@
 import { Chat } from '@/components/custom/Badge/Chat';
 import ButtonWithClickState from '@/components/custom/Button/ButtonWithClickState';
-import ImageItem from '@/components/survey/ImageItem';
+import HoverWrapper from '@/components/custom/HoverWrapper';
+import SurveyImageContainer from '@/components/survey/SurveyImageContainer';
 import SurveyItem from '@/components/survey/SurveyItem';
-import { QuestionVO } from '@/types/SurveyMessage';
+import { ChoiceVO, QuestionVO } from '@/types/SurveyMessage';
 
 export function Survey({
   survey,
@@ -11,7 +12,7 @@ export function Survey({
 }: {
   survey: QuestionVO;
   disabled: boolean;
-  onClick?: (...args: any) => void;
+  onClick?: (choice: ChoiceVO) => void;
 }): JSX.Element {
   switch (survey.choiceType) {
     case 'chat':
@@ -39,16 +40,35 @@ export function Survey({
     case 'image':
       return (
         <SurveyItem question={survey.question}>
-          <div className="grid grid-cols-2 w-[100%] gap-3">
+          <div className="grid grid-cols-3 gap-3">
             {survey.choices.map((choice, i) => {
               const value = Object.values(choice.value)[0];
               return (
-                <ImageItem
-                  onClick={() => onClick?.(choice.value)}
-                  imageSrc={choice.imageSrc ?? ''}
+                <SurveyImageContainer
                   key={choice.id}
+                  choice={choice}
+                  disabled={disabled}
                   value={value}
+                  onClick={onClick}
                 />
+              );
+            })}
+          </div>
+        </SurveyItem>
+      );
+    case 'color':
+      return (
+        <SurveyItem question={survey.question}>
+          <div className="grid grid-cols-3 grid-rows-3 gap-3 bg-neutral-200 p-9 rounded-[12px]">
+            {survey.choices.map((choice, i) => {
+              return (
+                <HoverWrapper key={choice.id} className="rounded-full border-4">
+                  <div
+                    style={{ background: choice?.color ?? '' }}
+                    className={`rounded-full bg-[${choice?.color}] m-1 w-[36px] h-[36px]`}
+                    onClick={() => onClick?.(choice)}
+                  />
+                </HoverWrapper>
               );
             })}
           </div>
