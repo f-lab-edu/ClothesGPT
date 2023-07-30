@@ -2,8 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer components{
- .cs-message__content .cs-message--incoming .cs-message__content {
-    @apply !bg-violet-900
+  .cs-message--incoming .cs-message__content{
+    background-color: transparent !important;
+  }
+}
+
+@layer utilities{
+  .disable{
+    opacity: 0.5;
+    cursor:auto;
+    pointer-events: none;
+  }
+
+  .cs-message-list__scroll-wrapper::-webkit-scrollbar {
+    display: none; /* 크롬, 사파리, 오페라, 엣지 */
   }
 }

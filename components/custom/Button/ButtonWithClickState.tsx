@@ -8,10 +8,10 @@ function ButtonWithClickState(props: ButtonProps) {
   return (
     <Button
       {...props}
+      disabled={isClick ? false : props.disabled}
       className={cn(
+        'bg-violet-700 hover:bg-violet-500 disabled:bg-neutral-200',
         props.className,
-        'bg-violet-700 text-white rounded-[10px] hover:bg-violet-500',
-        `disabled:${isClick ? 'opacity-75' : 'opacity-25'}`,
       )}
       onClick={(e) => {
         props.onClick?.(e);

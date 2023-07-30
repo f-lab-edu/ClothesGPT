@@ -11,11 +11,14 @@ interface ImageItemProps {
 function ImageItem({ imageSrc, value, onClick, className }: ImageItemProps) {
   return (
     <div
-      className={cn('flex flex-col w-[80px] items-center', className)}
+      className={cn(
+        'flex flex-col w-[80px] items-center m-2 h-[90%]',
+        className,
+      )}
       onClick={onClick}
     >
       <img
-        className="flex-1 w-[100%] h-[70px]"
+        className="flex-1 w-[100%] h-[100%]"
         src={imageSrc}
         alt={value}
         height={70}
