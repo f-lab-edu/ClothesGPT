@@ -10,8 +10,8 @@ import {
   TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { useChatWithChatGPT } from '@/modules/common/hooks/useChatWithChatGPT';
 import { v4 as uuidv4 } from 'uuid';
+import { useChatWithChatGPT } from '@/hooks/useChatWithChatGPT';
 
 const ChattingContainer = () => {
   const { messages, send, typing } = useChatWithChatGPT({});

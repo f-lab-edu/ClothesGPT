@@ -1,4 +1,4 @@
-import SurveyContainer from '@/modules/survey/components/SurveyContainer';
+import SurveyContainer from '@/components/survey/SurveyContainer';
 import prisma from '@/lib/prisma';
 
 // TODO : 설문 api 연동하기

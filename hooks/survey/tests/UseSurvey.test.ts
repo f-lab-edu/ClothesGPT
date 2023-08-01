@@ -1,24 +1,24 @@
 import { getSurveyMessageMock } from '@/__tests__/mock/survey/types/surveyMessageMock';
-import {
-  ChoiceVO,
-  SurveyMessage,
-  SurveyVO,
-} from '@/modules/common/types/SurveyMessage';
 import { renderHook, RenderHookResult } from '@testing-library/react';
 import { act } from '@testing-library/react-hooks';
-import useQuestion, { UseSurvey } from '../useSurvey';
+import {
+  ChoiceVO,
+  QuestionMessage,
+  QuestionVO,
+} from '@/types/common/SurveyMessage';
+import useQuestion, { UseQuestion } from '../useQuestion';
 import { data } from './surveyMock.json';
 
 // TODO : 설문이 완료되었을 때의 동작 테스트 필요
 describe('Given : UseSurvey ', () => {
-  const surveyMessageMock: SurveyMessage[] = data.map((_) => {
-    return getSurveyMessageMock(_ as SurveyVO);
+  const surveyMessageMock: QuestionMessage[] = data.map((_) => {
+    return getSurveyMessageMock(_ as QuestionVO);
   });
 
-  let renderResult: RenderHookResult<UseSurvey, null>['result'];
+  let renderResult: RenderHookResult<UseQuestion, null>['result'];
   beforeEach(() => {
     const { result } = renderHook(() =>
-      useQuestion({ surveys: data as SurveyVO[] }),
+      useQuestion({ surveys: data as QuestionVO[] }),
     );
     renderResult = result;
   });
@@ -35,7 +35,7 @@ describe('Given : UseSurvey ', () => {
     };
     beforeEach(() => {
       act(() => {
-        renderResult.current.onClickSurveyChoice(userSelectedChoice);
+        renderResult.current.onClickQuestionChoice(userSelectedChoice);
       });
     });
     test('Then : 다음 설문이 나온다.', () => {

@@ -1,5 +1,7 @@
-import { SurveyMessage, SurveyVO } from '@/modules/common/types/SurveyMessage';
+import { QuestionMessage, QuestionVO } from '@/types/common/SurveyMessage';
 
-export function getSurveyMessageMock(survey: SurveyVO) {
-  return new SurveyMessage(survey.question, survey, { direction: 'incoming' });
+export function getSurveyMessageMock(survey: QuestionVO) {
+  return new QuestionMessage(survey.question, survey, {
+    direction: 'incoming',
+  });
 }

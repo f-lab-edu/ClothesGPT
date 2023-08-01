@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AxiosError } from 'axios';
-import { CustomMessageModel, MessageOptions } from '../types/Message';
+import { CustomMessageModel, MessageOptions } from '@/types/common/Message';
 import { useChatGPT } from './useChatGPT';
 
 export interface UseChat {

@@ -1,15 +1,15 @@
 import { Chat } from '@/components/custom/Badge/Chat';
 import ButtonWithClickState from '@/components/custom/Button/ButtonWithClickState';
-import ImageItem from '../components/ImageItem';
-import SurveyItem from '../components/SurveyItem';
-import { SurveyVO } from '../types/SurveyMessage';
+import ImageItem from '@/components/survey/ImageItem';
+import SurveyItem from '@/components/survey/SurveyItem';
+import { QuestionVO } from '@/types/common/SurveyMessage';
 
 export function Survey({
   survey,
   disabled,
   onClick,
 }: {
-  survey: SurveyVO;
+  survey: QuestionVO;
   disabled: boolean;
   onClick?: (...args: any) => void;
 }): JSX.Element {

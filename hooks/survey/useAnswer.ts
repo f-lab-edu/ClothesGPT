@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { ChoiceVO, SurveyVO } from '@/modules/common/types/SurveyMessage';
 import { useImmer } from 'use-immer';
+import { ChoiceVO, QuestionVO } from '@/types/common/SurveyMessage';
 import { hasAllKey } from '@/types/object/hasAllKey';
 
 export interface UseAnswer {
   select: (choice: ChoiceVO) => void;
-  next: () => SurveyVO;
+  next: () => QuestionVO;
   submit: () => Record<string, string>;
   deleteAll: () => void;
 }
@@ -15,7 +15,7 @@ interface Answer {
   value: Record<string, string>;
 }
 
-export const useAnswer = (surveys: SurveyVO[]): UseAnswer => {
+export const useAnswer = (surveys: QuestionVO[]): UseAnswer => {
   const [order, setOrder] = useState(0);
   const [answer, updateAnswer] = useImmer<Answer>({
     tags: {},
@@ -38,13 +38,13 @@ export const useAnswer = (surveys: SurveyVO[]): UseAnswer => {
     setOrder((prev) => prev + 1);
   };
 
-  const tagFilter = (surveys: SurveyVO[]): SurveyVO[] => {
+  const tagFilter = (surveys: QuestionVO[]): QuestionVO[] => {
     return surveys.filter((survey) => {
       return hasAllKey(survey?.tag ?? {}, answer.tags);
     });
   };
 
-  const next = (): SurveyVO => {
+  const next = (): QuestionVO => {
     return { ...tagFilter(surveys)[order] };
   };
 
