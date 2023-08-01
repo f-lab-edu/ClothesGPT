@@ -13,7 +13,7 @@ export interface ChoiceVO {
   tag?: Record<string, string>;
 }
 
-export interface SurveyVO {
+export interface QuestionVO {
   id: number;
   question: string;
   tag?: Record<string, string>;
@@ -26,7 +26,7 @@ type Options = {
   components?: (index: number) => React.ReactNode;
 };
 
-export class SurveyMessage implements MessageModel {
+export class QuestionMessage implements MessageModel {
   message?: string | undefined;
   sentTime?: string | undefined;
   sender?: string | undefined;
@@ -34,8 +34,8 @@ export class SurveyMessage implements MessageModel {
   position: 0 | 1 | 2 | 'single' | 'first' | 'normal' | 'last' | 3;
   type?: MessageType | undefined;
   payload?: MessagePayload;
-  survey: SurveyVO;
-  constructor(message: string, survey: SurveyVO, options?: Options) {
+  survey: QuestionVO;
+  constructor(message: string, survey: QuestionVO, options?: Options) {
     this.direction = options?.direction ?? 'outgoing';
     this.position = 'last';
     this.type = 'custom';

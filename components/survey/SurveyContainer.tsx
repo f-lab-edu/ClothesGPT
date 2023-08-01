@@ -1,8 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { SurveyVO } from '@/modules/common/types/SurveyMessage';
-import { Survey } from '@/modules/common/utils/convertSurveyComponent';
 import {
   ChatContainer,
   MainContainer,
@@ -10,8 +8,10 @@ import {
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
 import { answer, survey, users } from '@prisma/client';
-import { data } from '../hooks/tests/surveyMock.json';
-import useQuestion from '../hooks/useSurvey';
+import { data } from '@/hooks/survey/tests/surveyMock.json';
+import useQuestion from '@/hooks/survey/useQuestion';
+import { QuestionVO } from '@/types/common/SurveyMessage';
+import { Survey } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
 export type UserWithAnswersType = users & { answers: answer[] };
@@ -19,8 +19,8 @@ export type UserWithAnswersType = users & { answers: answer[] };
 const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
   // const [isSSR, setIsSSR] = useState(true);
   const [open, setOpen] = useState(false);
-  const { messages, onClickSurveyChoice, isDisable } = useQuestion({
-    surveys: data as SurveyVO[],
+  const { messages, onClickQuestionChoice, isDisable } = useQuestion({
+    surveys: data as QuestionVO[],
   });
 
   // useEffect(() => {
@@ -49,7 +49,7 @@ const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
                         <Survey
                           survey={message.survey}
                           disabled={isDisable(i)}
-                          onClick={onClickSurveyChoice}
+                          onClick={onClickQuestionChoice}
                         />
                       </Message.CustomContent>
                     </Message>

@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import {
   ChoiceVO,
-  SurveyMessage as QuestionMessage,
-  SurveyVO as QuestionVO,
-} from '@/modules/common/types/SurveyMessage';
-import { isEmpty } from '@/modules/common/utils/object/isEmpty';
+  QuestionMessage,
+  QuestionVO,
+} from '@/types/common/SurveyMessage';
+import { isEmpty } from '@/utils/survey/object/isEmpty';
 import { useAnswer } from './useAnswer';
 
 export interface UseQuestion {

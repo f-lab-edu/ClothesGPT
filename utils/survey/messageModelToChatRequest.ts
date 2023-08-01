@@ -1,5 +1,5 @@
 import { ChatRequest } from '@/api/openai/types';
-import { CustomMessageModel } from '../types/Message';
+import { CustomMessageModel } from '@/types/common/Message';
 
 export const convertMessageModelToChatRequest = (
   totalMessage: CustomMessageModel[],

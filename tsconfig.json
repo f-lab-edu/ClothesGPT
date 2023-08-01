@@ -27,12 +27,15 @@
     ],
     "paths": {
       "@/*": ["./*"],
+      "@/asset": ["./asset"],
       "@/app": ["./app"],
       "@/components": ["./components"],
+      "@/constant": ["./constant"],
+      "@/hooks": ["./hooks"],
       "@/lib": ["./lib"],
-      "@/modules": ["./modules"],
       "@/prisma": ["./prisma"],
-      "@/types": ["./types"]
+      "@/types": ["./types"],
+      "@/utils": ["./utils"]
     }
   },
   "include": [

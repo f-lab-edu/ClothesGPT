@@ -1,4 +1,4 @@
-import { isEmpty } from '@/modules/common/utils/object/isEmpty';
+import { isEmpty } from '@/utils/survey/object/isEmpty';
 
 export function hasAllKey(
   target: Record<string, string>,
