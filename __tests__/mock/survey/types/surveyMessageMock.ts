@@ -1,4 +1,4 @@
-import { QuestionMessage, QuestionVO } from '@/types/common/SurveyMessage';
+import { QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
 
 export function getSurveyMessageMock(survey: QuestionVO) {
   return new QuestionMessage(survey.question, survey, {

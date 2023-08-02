@@ -1,9 +1,5 @@
 import { useEffect, useState } from 'react';
-import {
-  ChoiceVO,
-  QuestionMessage,
-  QuestionVO,
-} from '@/types/common/SurveyMessage';
+import { ChoiceVO, QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
 import { isEmpty } from '@/utils/survey/object/isEmpty';
 import { useAnswer } from './useAnswer';
 
