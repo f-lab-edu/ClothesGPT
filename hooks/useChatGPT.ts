@@ -2,7 +2,7 @@ import { AxiosError } from 'axios';
 import { CreateChatCompletionResponse } from 'openai';
 import { ChatRequest } from '@/api/openai/types';
 import { convertMessageModelToChatRequest } from '@/utils/survey/messageModelToChatRequest';
-import { CustomMessageModel, MessageOptions } from '../types/common/Message';
+import { CustomMessageModel, MessageOptions } from '../types/Message';
 import { useSendChat } from './command/useSendChat';
 
 export interface UseChatGPT {

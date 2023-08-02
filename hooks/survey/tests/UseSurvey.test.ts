@@ -1,11 +1,7 @@
 import { getSurveyMessageMock } from '@/__tests__/mock/survey/types/surveyMessageMock';
 import { renderHook, RenderHookResult } from '@testing-library/react';
 import { act } from '@testing-library/react-hooks';
-import {
-  ChoiceVO,
-  QuestionMessage,
-  QuestionVO,
-} from '@/types/common/SurveyMessage';
+import { ChoiceVO, QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
 import useQuestion, { UseQuestion } from '../useQuestion';
 import { data } from './surveyMock.json';
 

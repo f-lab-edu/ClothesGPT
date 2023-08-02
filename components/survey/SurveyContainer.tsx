@@ -10,7 +10,7 @@ import {
 import { answer, survey, users } from '@prisma/client';
 import { data } from '@/hooks/survey/tests/surveyMock.json';
 import useQuestion from '@/hooks/survey/useQuestion';
-import { QuestionVO } from '@/types/common/SurveyMessage';
+import { QuestionVO } from '@/types/SurveyMessage';
 import { Survey } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
