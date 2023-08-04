@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from 'uuid';
 import { Chat } from '@/components/custom/Badge/Chat';
 import ButtonWithClickState from '@/components/custom/Button/ButtonWithClickState';
 import HoverWrapper from '@/components/custom/HoverWrapper';
@@ -27,7 +28,7 @@ export function Survey({
           {survey.choices.map((choice, i) => {
             return (
               <ButtonWithClickState
-                key={choice.id}
+                key={uuidv4()}
                 disabled={disabled}
                 onClick={() => onClick?.(survey.choices[i])}
               >
@@ -40,12 +41,12 @@ export function Survey({
     case 'image':
       return (
         <SurveyItem question={survey.question}>
-          <div className="grid grid-cols-3 gap-3">
+          <div className="grid grid-cols-3 grid-rows-[repeat(2,1fr)] gap-3">
             {survey.choices.map((choice, i) => {
               const value = Object.values(choice.value)[0];
               return (
                 <SurveyImageContainer
-                  key={choice.id}
+                  key={uuidv4()}
                   choice={choice}
                   disabled={disabled}
                   value={value}
@@ -59,7 +60,7 @@ export function Survey({
     case 'color':
       return (
         <SurveyItem question={survey.question}>
-          <div className="grid grid-cols-3 grid-rows-3 gap-3 bg-neutral-200 p-9 rounded-[12px]">
+          <div className="grid grid-cols-3 grid-rows- gap-3 bg-neutral-200 p-9 rounded-[12px]">
             {survey.choices.map((choice, i) => {
               return (
                 <HoverWrapper key={choice.id} className="rounded-full border-4">
