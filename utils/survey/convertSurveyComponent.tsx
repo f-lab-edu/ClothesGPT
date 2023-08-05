@@ -41,7 +41,11 @@ export function Survey({
     case 'image':
       return (
         <SurveyItem question={survey.question}>
-          <div className="grid grid-cols-3 grid-rows-[repeat(2,1fr)] gap-3">
+          <div
+            className={`grid grid-cols-3 grid-rows-[repeat(${
+              survey.choices.length / 3
+            },1fr)] gap-3`}
+          >
             {survey.choices.map((choice, i) => {
               const value = Object.values(choice.value)[0];
               return (
