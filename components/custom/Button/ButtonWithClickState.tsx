@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { violetButtonVariants } from '@/constant/ComponentClassNames';
 import { Button, ButtonProps } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
@@ -9,10 +10,7 @@ function ButtonWithClickState(props: ButtonProps) {
     <Button
       {...props}
       disabled={isClick ? false : props.disabled}
-      className={cn(
-        'bg-violet-700 hover:bg-violet-500 disabled:bg-neutral-200',
-        props.className,
-      )}
+      className={cn(violetButtonVariants, props.className)}
       onClick={(e) => {
         props.onClick?.(e);
         setIsClick(true);

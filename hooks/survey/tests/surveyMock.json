@@ -17,6 +17,7 @@
         }
       ]
     },
+
     {
       "id": 2,
       "question": "본인이 찾고 계신 옷의 스타일을 클릭하세요!(남자)",
@@ -95,7 +96,6 @@
           "value": { "style": "캐주얼" },
           "imageSrc": "https://image.hmall.com/static/6/9/90/35/2135909676_0.jpg?RS=600x600&AR=0"
         }
-      
       ]
     },
     {
@@ -109,17 +109,17 @@
         {
           "id": 1,
           "value": { "body": "역삼각형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanInvertedTriangle.svg?alt=media&token=8861e2e5-3e2b-41da-92e2-a30698a58584"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanInvertedTriangle.svg?alt=media&token=8861e2e5-3e2b-41da-92e2-a30698a58584"
         },
         {
           "id": 2,
           "value": { "body": "다이아몬드 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanDiamond.svg?alt=media&token=74595864-a408-4123-b808-61a9830007f0"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanDiamond.svg?alt=media&token=74595864-a408-4123-b808-61a9830007f0"
         },
         {
           "id": 3,
           "value": { "body": "원형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanRound.svg?alt=media&token=f56a5dbb-7628-40b8-ae46-52603ca8b621"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FmanRound.svg?alt=media&token=f56a5dbb-7628-40b8-ae46-52603ca8b621"
         }
       ]
     },
@@ -134,27 +134,27 @@
         {
           "id": 1,
           "value": { "body": "역삼각형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanInvertedTriangle.svg?alt=media&token=2ef0a377-979f-4f4e-b09b-e53ffb5366f4"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanInvertedTriangle.svg?alt=media&token=2ef0a377-979f-4f4e-b09b-e53ffb5366f4"
         },
-         {
+        {
           "id": 2,
           "value": { "body": "삼각형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanTriangle.svg?alt=media&token=57af5b6b-37b0-41b0-8e42-2a1c4b300be9"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanTriangle.svg?alt=media&token=57af5b6b-37b0-41b0-8e42-2a1c4b300be9"
         },
         {
           "id": 3,
           "value": { "body": "사각형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanRectangle.svg?alt=media&token=b504106c-8913-47ad-93b9-c5db476bbb29"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanRectangle.svg?alt=media&token=b504106c-8913-47ad-93b9-c5db476bbb29"
         },
         {
           "id": 4,
           "value": { "body": "원형 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanRound.svg?alt=media&token=99b4f365-f49a-45fd-aee9-ffa70d978b8a"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanRound.svg?alt=media&token=99b4f365-f49a-45fd-aee9-ffa70d978b8a"
         },
         {
           "id": 5,
           "value": { "body": "모래시계 체형" },
-          "imageSrc":"https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanSandglass.svg?alt=media&token=f896a492-8613-4aed-968d-45200e794c49"
+          "imageSrc": "https://firebasestorage.googleapis.com/v0/b/mystorage-40c43.appspot.com/o/clothesGPT%2FwomanSandglass.svg?alt=media&token=f896a492-8613-4aed-968d-45200e794c49"
         }
       ]
     },
@@ -165,49 +165,49 @@
       "choiceType": "color",
       "choices": [
         {
-          "id": 1,
+          "id": "#FF0000",
           "value": { "color": "빨간색" },
-          "color":"#FF0000"
+          "color": "#FF0000"
         },
         {
-          "id": 2,
+          "id": "#FFFF00",
           "value": { "color": "노란색" },
-          "color":"#FFFF00"
+          "color": "#FFFF00"
         },
         {
-          "id": 3,
+          "id": "#008000",
           "value": { "color": "초록색" },
-          "color":"#008000"
+          "color": "#008000"
         },
         {
-          "id": 4,
+          "id": "#A0E8ED",
           "value": { "color": "하늘색" },
-          "color":"#A0E8ED"
+          "color": "#A0E8ED"
         },
         {
           "id": 5,
           "value": { "color": "분홍색" },
-          "color":"#0000FF"
+          "color": "#0000FF"
         },
         {
-          "id": 6,
+          "id": "#772CE8",
           "value": { "color": "보라색" },
-          "color":"#772CE8"
+          "color": "#772CE8"
         },
         {
-          "id": 7,
+          "id": "#ED3DC6",
           "value": { "color": "남색" },
-          "color":"#ED3DC6"
+          "color": "#ED3DC6"
         },
         {
-          "id": 8,
+          "id": "#000000",
           "value": { "color": "흰색" },
-          "color":"#000000"
+          "color": "#000000"
         },
         {
-          "id": 9,
+          "id": "#FFFFFF",
           "value": { "color": "검은색" },
-          "color":"#FFFFFF"
+          "color": "#FFFFFF"
         }
       ]
     }
