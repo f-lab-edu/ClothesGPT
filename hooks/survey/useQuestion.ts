@@ -30,6 +30,8 @@ const useQuestion = ({ surveys }: { surveys: QuestionVO[] }) => {
       ]);
     } else {
       // TODO : 설문이 모두 끝난 후의 동작 구현
+      const answer = userAnswer.submit();
+      console.log('answer', answer);
     }
   };
 

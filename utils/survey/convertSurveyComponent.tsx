@@ -4,6 +4,7 @@ import HoverWrapper from '@/components/custom/HoverWrapper';
 import SurveyColorContainer from '@/components/survey/SurveyColorContainer';
 import SurveyImageContainer from '@/components/survey/SurveyImageContainer';
 import SurveyItem from '@/components/survey/SurveyItem';
+import SurveyNumberInputContainer from '@/components/survey/SurveyNumberInputContainer';
 import { ChoiceVO, QuestionVO } from '@/types/SurveyMessage';
 
 export function Survey({
@@ -61,6 +62,20 @@ export function Survey({
           </div>
         </SurveyItem>
       );
+    case 'input': {
+      const choice = survey.choices?.[0];
+      return (
+        <SurveyItem question={survey.question}>
+          <SurveyNumberInputContainer
+            _key={Object.keys(choice.value)[0]}
+            choice={choice}
+            disabled={disabled}
+            type={choice?.inputType ?? ''}
+            onClick={onClick}
+          />
+        </SurveyItem>
+      );
+    }
     case 'color':
       return (
         <SurveyItem question={survey.question}>
