@@ -12,6 +12,7 @@ export interface ChoiceVO {
   color?: string;
   value: Record<string, string>;
   tag?: Record<string, string>;
+  inputType?: HTMLInputElement['type'];
 }
 
 export interface QuestionVO {

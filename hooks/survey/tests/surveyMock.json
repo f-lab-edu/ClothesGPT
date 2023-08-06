@@ -159,7 +159,33 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
+      "question": "본인의 키를 적어주세요!",
+      "tag": {},
+      "choiceType": "input",
+      "choices": [
+        {
+          "id": 1,
+          "value": { "height": null },
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "question": "본인의 몸무게를 적어주세요!",
+      "tag": {},
+      "choiceType": "input",
+      "choices": [
+        {
+          "id": 1,
+          "value": { "weight": null },
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": 8,
       "question": "본인의 좋아하는 색깔을 선택하세요!",
       "tag": {},
       "choiceType": "color",
