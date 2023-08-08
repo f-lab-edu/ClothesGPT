@@ -8,7 +8,7 @@ interface SurveyItemProps {
 
 function SurveyItem({ question, children }: SurveyItemProps) {
   return (
-    <div className="flex flex-col">
+    <div>
       <Chat text={question} className="mb-[10px]" />
       <div className="flex gap-[6px]">{children}</div>
     </div>

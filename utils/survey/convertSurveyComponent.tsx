@@ -1,6 +1,5 @@
 import { Chat } from '@/components/custom/Badge/Chat';
 import ButtonWithClickState from '@/components/custom/Button/ButtonWithClickState';
-import HoverWrapper from '@/components/custom/HoverWrapper';
 import SurveyColorContainer from '@/components/survey/SurveyColorContainer';
 import SurveyImageContainer from '@/components/survey/SurveyImageContainer';
 import SurveyItem from '@/components/survey/SurveyItem';
