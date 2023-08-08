@@ -1,5 +1,6 @@
 import { AxiosError } from 'axios';
 import { CreateChatCompletionResponse } from 'openai';
+import { v4 as uuidv4 } from 'uuid';
 import { ChatRequest } from '@/api/openai/types';
 import { convertMessageModelToChatRequest } from '@/utils/survey/messageModelToChatRequest';
 import { CustomMessageModel, MessageOptions } from '../types/Message';
@@ -27,6 +28,7 @@ export function useChatGPT({
       ...options,
       message: data?.choices[0].message?.content,
       role: 'assistant',
+      id: uuidv4(),
     };
   };
 

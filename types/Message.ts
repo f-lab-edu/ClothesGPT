@@ -5,4 +5,7 @@ export type MessageOptions = Pick<MessageModel, 'direction' | 'position'> & {
   sender: ChatGptMessageRole;
 };
 
-export type CustomMessageModel = MessageModel & { role: ChatGptMessageRole };
+export type CustomMessageModel = MessageModel & {
+  role: ChatGptMessageRole;
+  id: string;
+};

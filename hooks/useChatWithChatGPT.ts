@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AxiosError } from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import { CustomMessageModel, MessageOptions } from '@/types/Message';
 import { useChatGPT } from './useChatGPT';
 
@@ -26,6 +27,7 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
         position: 'first',
         message: '반갑습니다.',
         role: 'assistant',
+        id: uuidv4(),
       },
     ],
   );
@@ -40,6 +42,7 @@ export const useChatWithChatGPT = ({ initMessage }: Parameter): UseChat => {
       ...userOptions,
       message,
       role: 'user',
+      id: uuidv4(),
     };
     setMessages((prev) => [...prev, userMessage]);
     setTyping(true);

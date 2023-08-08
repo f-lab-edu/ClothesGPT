@@ -10,7 +10,6 @@ import {
   TypingIndicator,
 } from '@chatscope/chat-ui-kit-react';
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-import { v4 as uuidv4 } from 'uuid';
 import { useChatWithChatGPT } from '@/hooks/useChatWithChatGPT';
 
 const ChattingContainer = () => {
@@ -27,7 +26,7 @@ const ChattingContainer = () => {
             }
           >
             {messages.map((message, i) => {
-              return <Message key={uuidv4()} model={message} />;
+              return <Message key={message.id} model={message} />;
             })}
           </MessageList>
           <MessageInput
