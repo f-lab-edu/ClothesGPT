@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
+import { cn } from '@/lib/utils';
 import { ChoiceVO } from '@/types/SurveyMessage';
 import HoverWrapper from '../custom/HoverWrapper';
 
@@ -18,15 +18,15 @@ function SurveyColorContainer({
   return (
     <HoverWrapper
       key={choice.id}
-      className={`${clsx({
+      className={`${cn({
         disable: disabled && !isSelect,
-      })} ${clsx(
+      })} ${cn(
         isSelect ? 'rounded-full border-4 border-violet-700' : '',
       )} rounded-full border-4`}
     >
       <div
         style={{ background: choice?.color ?? '' }}
-        className={`rounded-full bg-[${choice?.color}] m-1 w-[36px] h-[36px]`}
+        className="rounded-full m-1 w-[36px] h-[36px]"
         onClick={() => {
           setIsSelect(true);
           onClick?.(choice);

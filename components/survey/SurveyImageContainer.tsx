@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import clsx from 'clsx';
 import HoverWrapper from '@/components/custom/HoverWrapper';
+import { cn } from '@/lib/utils';
 import { ChoiceVO } from '@/types/SurveyMessage';
 import ImageItem from './ImageItem';
 
@@ -20,7 +20,7 @@ function SurveyImageContainer({
   const [isSelect, setIsSelect] = useState<boolean>(false);
   return (
     <HoverWrapper
-      className={`${clsx({ disable: disabled && !isSelect })} ${clsx(
+      className={`${cn({ disable: disabled && !isSelect })} ${cn(
         isSelect ? ' border-solid border-4 border-violet-700' : '',
       )}`}
     >
