@@ -1,6 +1,6 @@
-import { QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
+import { QuestionMessage, QuestionUI } from '@/types/SurveyMessage';
 
-export function getSurveyMessageMock(survey: QuestionVO) {
+export function getSurveyMessageMock(survey: QuestionUI) {
   return new QuestionMessage(survey.question, survey, {
     direction: 'incoming',
   });

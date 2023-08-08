@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import HoverWrapper from '@/components/custom/HoverWrapper';
 import { cn } from '@/lib/utils';
-import { ChoiceVO } from '@/types/SurveyMessage';
+import { ChoiceUI } from '@/types/SurveyMessage';
 import ImageItem from './ImageItem';
 
 interface SurveyImageContainerProps {
-  choice: ChoiceVO;
+  choice: ChoiceUI;
   value: string;
   disabled: boolean;
-  onClick?: (choice: ChoiceVO) => void;
+  onClick?: (choice: ChoiceUI) => void;
 }
 
 function SurveyImageContainer({

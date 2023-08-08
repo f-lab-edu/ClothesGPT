@@ -1,22 +1,27 @@
-export type ChoiceComponentType =
-  | 'chat'
-  | 'button'
-  | 'image'
-  | 'color'
-  | 'input';
+import { InputType, Prisma } from 'prisma/prisma-client';
+import { Color } from './SurveyMessage';
 
+export type ChoiceComponentType =
+  | 'Chat'
+  | 'Button'
+  | 'Image'
+  | 'Color'
+  | 'Input';
 export interface Choice {
   id: string;
-  value: string;
-  tag?: Record<string, string>;
-  image?: string;
+  imageSrc?: string;
+  color?: Color;
+  value: Prisma.JsonValue;
+  tag?: Prisma.JsonValue;
+  inputType?: InputType;
+  questionId: string;
+  question: Question;
 }
 
-export interface Survey {
-  id: number;
+export interface Question {
+  id: string;
   question: string;
-  tag: Record<string, string>;
   choices: Choice[];
-  component?: React.ReactNode;
   choiceType: ChoiceComponentType;
+  tag?: Prisma.JsonValue;
 }
