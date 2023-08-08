@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
 import { violetButtonVariants } from '@/constant/ComponentClassNames';
 import { cn } from '@/lib/utils';
-import { ChoiceVO } from '@/types/SurveyMessage';
+import { ChoiceUI } from '@/types/SurveyMessage';
 import NumberInput from '../custom/input/NumberInput';
 import { Button } from '../ui/button';
 
 interface SurveyNumberInputContainerProps {
   disabled: boolean;
-  onClick?: (choice: ChoiceVO) => void;
+  onClick?: (choice: ChoiceUI) => void;
   _key: string;
-  choice: ChoiceVO;
+  choice: ChoiceUI;
   type: HTMLInputElement['type'];
 }
 function SurveyNumberInputContainer({

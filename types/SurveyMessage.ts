@@ -4,7 +4,7 @@ import {
   MessageType,
 } from '@chatscope/chat-ui-kit-react';
 import { MessageDirection } from '@chatscope/chat-ui-kit-react/src/types/unions';
-import { ChoiceComponentType } from '@/types/Survey';
+import { ChoiceComponentType, Question } from '@/types/Survey';
 
 const colors = [
   'red',
@@ -20,7 +20,7 @@ const colors = [
 
 export type Color = (typeof colors)[number];
 
-export interface ChoiceVO {
+export interface ChoiceUI {
   id: string;
   imageSrc?: string;
   color?: Color;
@@ -29,11 +29,35 @@ export interface ChoiceVO {
   inputType?: HTMLInputElement['type'];
 }
 
-export interface QuestionVO {
-  id: number;
+export class QuestionUI {
+  id: string;
   question: string;
   tag?: Record<string, string>;
-  choices: ChoiceVO[];
+  choices: ChoiceUI[];
+  choiceType: ChoiceComponentType;
+
+  constructor(question: Question) {
+    this.id = question.id;
+    this.question = question.question;
+    this.tag = question.tag as Record<string, string>;
+    this.choices = question.choices.map((choice) => {
+      return {
+        id: choice.id,
+        imageSrc: choice.imageSrc,
+        color: choice.color,
+        value: choice.value as Record<string, string>,
+        tag: choice.tag as Record<string, string>,
+      };
+    });
+    this.choiceType = question.choiceType;
+  }
+}
+
+export interface QuestionUI {
+  id: string;
+  question: string;
+  tag?: Record<string, string>;
+  choices: ChoiceUI[];
   choiceType: ChoiceComponentType;
 }
 
@@ -50,8 +74,8 @@ export class QuestionMessage implements MessageModel {
   position: 0 | 1 | 2 | 'single' | 'first' | 'normal' | 'last' | 3;
   type?: MessageType | undefined;
   payload?: MessagePayload;
-  survey: QuestionVO;
-  constructor(message: string, survey: QuestionVO, options?: Options) {
+  survey: QuestionUI;
+  constructor(message: string, survey: QuestionUI, options?: Options) {
     this.direction = options?.direction ?? 'outgoing';
     this.position = 'last';
     this.type = 'custom';

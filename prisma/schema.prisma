@@ -1,75 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("POSTGRES_PRISMA_URL")
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
-model users {
-  id        Int        @id @default(autoincrement())
-  name      String
-  email     String     @unique
-  image     String
-  createdAt DateTime   @default(now())
-  answers   answer[]
-  chat      chat[]
-  chatRoom  chatRoom[]
+model Question {
+  id         String              @id @default(uuid())
+  question   String
+  tag        Json?
+  choices    Choice[]
+  choiceType ChoiceComponentType
 }
 
-model chat {
-  id          Int      @id @default(autoincrement())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  content     String
-  createdById Int
-  createdBy   users    @relation(fields: [createdById], references: [id])
+model Choice {
+  id         String     @id @default(uuid())
+  imageSrc   String?
+  color      String?
+  value      Json?
+  tag        Json?
+  inputType  InputType?
+  questionId String
+  question   Question   @relation(fields: [questionId], references: [id])
 }
 
-model chatRoom {
-  id          Int           @id @default(autoincrement())
-  createdAt   DateTime      @default(now())
-  title       String        @db.VarChar(250)
-  createdById Int
-  chatGptChat chatGptChat[]
-  createdBy   users         @relation(fields: [createdById], references: [id])
+enum ChoiceComponentType {
+  Chat
+  Button
+  Image
+  Color
+  Input
 }
 
-model chatGptChat {
-  id         Int      @id @default(autoincrement())
-  createdAt  DateTime @default(now())
-  content    String
-  chatRoomId Int
-  chatRoom   chatRoom @relation(fields: [chatRoomId], references: [id])
-}
-
-model survey {
-  id       Int      @id @default(autoincrement())
-  question String
-  active   Boolean
-  order    Int
-  gender   String?
-  answers  answer[]
-  choices  choice[]
-}
-
-model choice {
-  id       Int      @id @default(autoincrement())
-  value    String
-  type     String
-  image    String?
-  surveyId Int
-  survey   survey   @relation(fields: [surveyId], references: [id])
-  answers  answer[] @relation("answerTochoice")
-}
-
-model answer {
-  id       Int      @id @default(autoincrement())
-  userId   Int
-  surveyId Int
-  survey   survey   @relation(fields: [surveyId], references: [id])
-  user     users    @relation(fields: [userId], references: [id])
-  choices  choice[] @relation("answerTochoice")
+enum InputType {
+  Number
 }

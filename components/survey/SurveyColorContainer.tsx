@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import { cn } from '@/lib/utils';
-import { ChoiceVO, Color } from '@/types/SurveyMessage';
+import { ChoiceUI, Color } from '@/types/SurveyMessage';
 import HoverWrapper from '../custom/HoverWrapper';
 
 interface SurveyColorContainerProps {
-  choice: ChoiceVO;
-  onClick?: (choice: ChoiceVO) => void;
+  choice: ChoiceUI;
+  onClick?: (choice: ChoiceUI) => void;
   disabled: boolean;
 }
 

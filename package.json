@@ -11,7 +11,8 @@
     "test": "jest --passWithNoTests --colors",
     "test:watch": "jest --passWithNoTests --colors --watch",
     "prepare": "husky install",
-    "pre-commit": "yarn lint & yarn test & lint-staged"
+    "pre-commit": "yarn lint & yarn test & lint-staged",
+    "migrate": "npx prisma migrate dev"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"

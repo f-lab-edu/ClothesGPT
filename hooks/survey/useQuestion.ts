@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react';
-import { ChoiceVO, QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
+import { Question } from '@/types/Survey';
+import { ChoiceUI, QuestionMessage } from '@/types/SurveyMessage';
 import { isEmpty } from '@/utils/survey/object/isEmpty';
 import { useAnswer } from './useAnswer';
 
 export interface UseQuestion {
   messages: QuestionMessage[];
   isDisable: (index: number) => boolean;
-  onClickQuestionChoice: (choices: ChoiceVO) => void;
+  onClickQuestionChoice: (choices: ChoiceUI) => void;
   replay: () => void;
 }
 
-const useQuestion = ({ surveys }: { surveys: QuestionVO[] }) => {
+const useQuestion = ({ surveys }: { surveys: Question[] }) => {
   const [step, setStep] = useState(0);
   const [messages, setMessages] = useState<QuestionMessage[]>([]);
   const userAnswer = useAnswer(surveys);
@@ -21,7 +22,7 @@ const useQuestion = ({ surveys }: { surveys: QuestionVO[] }) => {
 
   const nextStep = () => {
     const nextSurvey = userAnswer.next();
-    if (!isEmpty(nextSurvey)) {
+    if (nextSurvey && !isEmpty(nextSurvey)) {
       setMessages((prev) => [
         ...prev,
         new QuestionMessage(nextSurvey.question, nextSurvey, {
@@ -39,7 +40,7 @@ const useQuestion = ({ surveys }: { surveys: QuestionVO[] }) => {
     return messages.length - 1 !== index;
   };
 
-  const onClickQuestionChoice = (choices: ChoiceVO) => {
+  const onClickQuestionChoice = (choices: ChoiceUI) => {
     userAnswer.select(choices);
     setStep((prev) => prev + 1);
   };

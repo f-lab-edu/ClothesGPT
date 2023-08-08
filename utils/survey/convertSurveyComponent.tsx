@@ -4,25 +4,25 @@ import SurveyColorContainer from '@/components/survey/SurveyColorContainer';
 import SurveyImageContainer from '@/components/survey/SurveyImageContainer';
 import SurveyItem from '@/components/survey/SurveyItem';
 import SurveyNumberInputContainer from '@/components/survey/SurveyNumberInputContainer';
-import { ChoiceVO, QuestionVO } from '@/types/SurveyMessage';
+import { ChoiceUI, QuestionUI } from '@/types/SurveyMessage';
 
-export function Survey({
+export function SurveyComponent({
   survey,
   disabled,
   onClick,
 }: {
-  survey: QuestionVO;
+  survey: QuestionUI;
   disabled: boolean;
-  onClick?: (choice: ChoiceVO) => void;
+  onClick?: (choice: ChoiceUI) => void;
 }): JSX.Element {
   switch (survey.choiceType) {
-    case 'chat':
+    case 'Chat':
       return (
         <div>
           <Chat text={survey.question} />
         </div>
       );
-    case 'button':
+    case 'Button':
       return (
         <SurveyItem question={survey.question}>
           {survey.choices.map((choice, i) => {
@@ -38,7 +38,7 @@ export function Survey({
           })}
         </SurveyItem>
       );
-    case 'image':
+    case 'Image':
       return (
         <SurveyItem question={survey.question}>
           <div
@@ -61,7 +61,7 @@ export function Survey({
           </div>
         </SurveyItem>
       );
-    case 'input': {
+    case 'Input': {
       const choice = survey.choices?.[0];
       return (
         <SurveyItem question={survey.question}>
@@ -75,7 +75,7 @@ export function Survey({
         </SurveyItem>
       );
     }
-    case 'color':
+    case 'Color':
       return (
         <SurveyItem question={survey.question}>
           <div className="grid grid-cols-3 grid-rows- gap-3 bg-neutral-200 p-9 rounded-[12px]">

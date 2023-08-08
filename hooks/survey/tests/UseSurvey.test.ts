@@ -1,20 +1,21 @@
 import { getSurveyMessageMock } from '@/__tests__/mock/survey/types/surveyMessageMock';
 import { renderHook, RenderHookResult } from '@testing-library/react';
 import { act } from '@testing-library/react-hooks';
-import { ChoiceVO, QuestionMessage, QuestionVO } from '@/types/SurveyMessage';
+import { Question } from '@/types/Survey';
+import { ChoiceUI, QuestionMessage, QuestionUI } from '@/types/SurveyMessage';
 import useQuestion, { UseQuestion } from '../useQuestion';
 import { data } from './surveyMock.json';
 
 // TODO : 설문이 완료되었을 때의 동작 테스트 필요
 describe('Given : UseSurvey ', () => {
   const surveyMessageMock: QuestionMessage[] = data.map((_) => {
-    return getSurveyMessageMock(_ as QuestionVO);
+    return getSurveyMessageMock(_ as QuestionUI);
   });
 
   let renderResult: RenderHookResult<UseQuestion, null>['result'];
   beforeEach(() => {
     const { result } = renderHook(() =>
-      useQuestion({ surveys: data as QuestionVO[] }),
+      useQuestion({ surveys: data as unknown as Question[] }),
     );
     renderResult = result;
   });
@@ -24,7 +25,7 @@ describe('Given : UseSurvey ', () => {
     expect(renderResult.current.isDisable(0)).toBeFalsy();
   });
   describe('When : 사용자가 한 번 설문을 선택하면', () => {
-    const userSelectedChoice: ChoiceVO = {
+    const userSelectedChoice: ChoiceUI = {
       id: '',
       value: { gender: 'male' },
       tag: { gender: 'male' },

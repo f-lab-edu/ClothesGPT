@@ -7,22 +7,16 @@ import {
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
-import { data } from '@/hooks/survey/tests/surveyMock.json';
 import useQuestion from '@/hooks/survey/useQuestion';
-import { QuestionVO } from '@/types/SurveyMessage';
-import { Survey } from '@/utils/survey/convertSurveyComponent';
+import { Question } from '@/types/Survey';
+import { SurveyComponent } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
-const SurveyContainer = ({ surveys }: { surveys: QuestionVO[] }) => {
-  // const [isSSR, setIsSSR] = useState(true);
+const SurveyContainer = ({ surveys }: { surveys: Question[] }) => {
   const [open, setOpen] = useState(false);
   const { messages, onClickQuestionChoice, isDisable } = useQuestion({
-    surveys: data as QuestionVO[],
+    surveys,
   });
-
-  // useEffect(() => {
-  //   setIsSSR(false);
-  // }, []);
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -31,7 +25,6 @@ const SurveyContainer = ({ surveys }: { surveys: QuestionVO[] }) => {
     return () => clearTimeout(timeout);
   }, []);
 
-  // if (!isSSR) {
   return (
     <main className="relative flex min-h-screen flex-col items-center justify-center">
       <div className="relative h-[800px] w-[700px]">
@@ -47,7 +40,7 @@ const SurveyContainer = ({ surveys }: { surveys: QuestionVO[] }) => {
                       className="cs-message cs-message--incoming cs-message__content"
                     >
                       <Message.CustomContent>
-                        <Survey
+                        <SurveyComponent
                           survey={message.survey}
                           disabled={isDisable(i)}
                           onClick={onClickQuestionChoice}
@@ -63,9 +56,6 @@ const SurveyContainer = ({ surveys }: { surveys: QuestionVO[] }) => {
       </div>
     </main>
   );
-  // }
-
-  return null;
 };
 
 export default SurveyContainer;
