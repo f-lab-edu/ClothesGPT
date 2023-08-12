@@ -6,10 +6,24 @@ import {
 import { MessageDirection } from '@chatscope/chat-ui-kit-react/src/types/unions';
 import { ChoiceComponentType } from '@/types/Survey';
 
+const colors = [
+  'red',
+  'yellow',
+  'green',
+  'sky',
+  'pink',
+  'purple',
+  'navy',
+  'white',
+  'black',
+] as const;
+
+export type Color = (typeof colors)[number];
+
 export interface ChoiceVO {
   id: string;
   imageSrc?: string;
-  color?: string;
+  color?: Color;
   value: Record<string, string>;
   tag?: Record<string, string>;
   inputType?: HTMLInputElement['type'];
