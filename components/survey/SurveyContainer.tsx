@@ -7,16 +7,13 @@ import {
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
-import { answer, survey, users } from '@prisma/client';
 import { data } from '@/hooks/survey/tests/surveyMock.json';
 import useQuestion from '@/hooks/survey/useQuestion';
 import { QuestionVO } from '@/types/SurveyMessage';
 import { Survey } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
-export type UserWithAnswersType = users & { answers: answer[] };
-
-const SurveyContainer = ({ surveys }: { surveys: survey[] }) => {
+const SurveyContainer = ({ surveys }: { surveys: QuestionVO[] }) => {
   // const [isSSR, setIsSSR] = useState(true);
   const [open, setOpen] = useState(false);
   const { messages, onClickQuestionChoice, isDisable } = useQuestion({

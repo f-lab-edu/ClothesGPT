@@ -191,49 +191,49 @@
       "choiceType": "color",
       "choices": [
         {
-          "id": "#FF0000",
+          "id": "red",
           "value": { "color": "빨간색" },
-          "color": "#FF0000"
+          "color": "red"
         },
         {
-          "id": "#FFFF00",
+          "id": "yellow",
           "value": { "color": "노란색" },
-          "color": "#FFFF00"
+          "color": "yellow"
         },
         {
-          "id": "#008000",
+          "id": "green",
           "value": { "color": "초록색" },
-          "color": "#008000"
+          "color": "green"
         },
         {
-          "id": "#A0E8ED",
+          "id": "sky",
           "value": { "color": "하늘색" },
-          "color": "#A0E8ED"
+          "color": "sky"
         },
         {
-          "id": "#0000FF",
+          "id": "pink",
           "value": { "color": "분홍색" },
-          "color": "#0000FF"
+          "color": "pink"
         },
         {
-          "id": "#772CE8",
+          "id": "purple",
           "value": { "color": "보라색" },
-          "color": "#772CE8"
+          "color": "purple"
         },
         {
-          "id": "#ED3DC6",
+          "id": "navy",
           "value": { "color": "남색" },
-          "color": "#ED3DC6"
+          "color": "navy"
         },
         {
-          "id": "#000000",
+          "id": "white",
           "value": { "color": "흰색" },
-          "color": "#000000"
+          "color": "white"
         },
         {
-          "id": "#FFFFFF",
+          "id": "black",
           "value": { "color": "검은색" },
-          "color": "#FFFFFF"
+          "color": "black"
         }
       ]
     }
