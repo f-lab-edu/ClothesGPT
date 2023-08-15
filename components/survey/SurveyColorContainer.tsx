@@ -30,17 +30,15 @@ function SurveyColorContainer({
   return (
     <HoverWrapper
       key={choice.id}
-      className={`${cn({
+      className={cn('rounded-full border-4', {
         disable: disabled && !isSelect,
-      })} ${cn(
-        isSelect ? 'rounded-full border-4 border-violet-700' : '',
-      )} rounded-full border-4`}
+        'rounded-full border-4 border-violet-700': isSelect,
+      })}
     >
       <div
         className={cn(
-          `rounded-full m-1 w-[36px] h-[36px] ${
-            colorMapper[choice?.color ?? 'black']
-          }`,
+          'rounded-full m-1 w-[36px] h-[36px]',
+          colorMapper[choice?.color ?? 'black'],
         )}
         onClick={() => {
           setIsSelect(true);

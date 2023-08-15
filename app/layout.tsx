@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="kr">
       <body className={`${inter.className} center-body-content`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="white" enableSystem>
           <ReactQueryClientProvider>
             <>
               {children}
