@@ -11,7 +11,7 @@ export function Chat({ className, text }: Props) {
   return (
     <Badge
       className={cn(
-        'bg-violet-700 text-white hover:bg-violet-500 text-[16px] rounded-[16px] break-keep max-w-[200px] ',
+        'bg-violet-700 text-neutral-50 hover:bg-violet-500 text-[16px] rounded-[16px] break-keep max-w-[200px] ',
         className,
       )}
     >

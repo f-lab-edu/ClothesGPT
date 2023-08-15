@@ -20,9 +20,10 @@ function SurveyImageContainer({
   const [isSelect, setIsSelect] = useState<boolean>(false);
   return (
     <HoverWrapper
-      className={`${cn({ disable: disabled && !isSelect })} ${cn(
-        isSelect ? ' border-solid border-4 border-violet-700' : '',
-      )}`}
+      className={cn({
+        disable: disabled && !isSelect,
+        'border-solid border-4 border-violet-700': isSelect,
+      })}
     >
       <ImageItem
         onClick={() => {
