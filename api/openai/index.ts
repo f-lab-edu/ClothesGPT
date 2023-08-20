@@ -13,11 +13,11 @@ export const openAIApi: OpenAIApi = {
   chat: async (request: ChatRequest) => {
     const response = await api.createChatCompletion(
       {
-        model: 'gpt-3.5-turbo',
+        model: 'gpt-3.5-turbo-16k',
         messages: [systemMessage, ...request],
       },
       {
-        timeout: 7000,
+        timeout: 30000,
       },
     );
     return response.data;
