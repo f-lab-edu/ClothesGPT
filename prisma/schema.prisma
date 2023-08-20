@@ -1,21 +1,20 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL")
+  directUrl         = env("POSTGRES_URL_NON_POOLING")
+  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
 model Question {
   id         String              @id @default(uuid())
   question   String
   tag        Json?
-  choices    Choice[]
   choiceType ChoiceComponentType
+  choices    Choice[]
 }
 
 model Choice {
@@ -24,8 +23,8 @@ model Choice {
   color      String?
   value      Json?
   tag        Json?
-  inputType  InputType?
   questionId String
+  inputType  InputType?
   question   Question   @relation(fields: [questionId], references: [id])
 }
 
