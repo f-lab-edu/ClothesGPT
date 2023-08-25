@@ -26,7 +26,8 @@ function SurveyNumberInputContainer({
         disabled={disabled}
         value={value}
         onChange={(value) => setValue(value)}
-        range={{ max: 300, min: 1 }}
+        range={{ max: 300, min: 0 }}
+        autoFocus
       />
       <Button
         className={cn(violetButtonVariants, 'w-[70px]')}

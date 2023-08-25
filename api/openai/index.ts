@@ -11,15 +11,13 @@ const systemMessage: ChatMessage = {
 
 export const openAIApi: OpenAIApi = {
   chat: async (request: ChatRequest) => {
-    const response = await api.createChatCompletion(
-      {
-        model: 'gpt-3.5-turbo-16k',
-        messages: [systemMessage, ...request],
-      },
-      {
-        timeout: 30000,
-      },
-    );
+    const response = await api.createChatCompletion({
+      model: 'gpt-3.5-turbo-16k',
+      max_tokens: 7500,
+      top_p: 1,
+      temperature: 1,
+      messages: [systemMessage, ...request],
+    });
     return response.data;
   },
 };
