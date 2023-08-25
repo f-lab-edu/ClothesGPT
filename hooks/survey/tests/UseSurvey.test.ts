@@ -15,7 +15,10 @@ describe('Given : UseSurvey ', () => {
   let renderResult: RenderHookResult<UseQuestion, null>['result'];
   beforeEach(() => {
     const { result } = renderHook(() =>
-      useQuestion({ surveys: data as unknown as Question[] }),
+      useQuestion({
+        surveys: data as unknown as Question[],
+        submit: jest.fn(),
+      }),
     );
     renderResult = result;
   });

@@ -4,6 +4,10 @@ import { ChoiceUI, QuestionMessage } from '@/types/SurveyMessage';
 import { isEmpty } from '@/utils/survey/object/isEmpty';
 import { useAnswer } from './useAnswer';
 
+interface UseQuestionPrarams {
+  surveys: Question[];
+  submit: (answer: Record<string, string>) => void;
+}
 export interface UseQuestion {
   messages: QuestionMessage[];
   isDisable: (index: number) => boolean;
@@ -11,7 +15,7 @@ export interface UseQuestion {
   replay: () => void;
 }
 
-const useQuestion = ({ surveys }: { surveys: Question[] }) => {
+const useQuestion = ({ surveys, submit }: UseQuestionPrarams) => {
   const [step, setStep] = useState(0);
   const [messages, setMessages] = useState<QuestionMessage[]>([]);
   const userAnswer = useAnswer(surveys);
@@ -32,12 +36,12 @@ const useQuestion = ({ surveys }: { surveys: Question[] }) => {
     } else {
       // TODO : 설문이 모두 끝난 후의 동작 구현
       const answer = userAnswer.submit();
-      console.log('answer', answer);
+      submit(answer);
     }
   };
 
   const isDisable = (index: number): boolean => {
-    return messages.length - 1 !== index;
+    return step > index;
   };
 
   const onClickQuestionChoice = (choices: ChoiceUI) => {

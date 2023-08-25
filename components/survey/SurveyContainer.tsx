@@ -7,15 +7,21 @@ import {
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
+import { UserFavoriteSurveyResult } from '@/hooks/command/useSendUserFavoriteSurveyResult';
 import useQuestion from '@/hooks/survey/useQuestion';
+import { useUserFavoriteSurveyResult } from '@/hooks/survey/useUserFavoriteSurveyResult';
 import { Question } from '@/types/Survey';
 import { SurveyComponent } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
 const SurveyContainer = ({ surveys }: { surveys: Question[] }) => {
   const [open, setOpen] = useState(false);
+  const { sendSurvey } = useUserFavoriteSurveyResult();
   const { messages, onClickQuestionChoice, isDisable } = useQuestion({
     surveys,
+    submit: (answer) => {
+      sendSurvey(answer as Record<keyof UserFavoriteSurveyResult, string>);
+    },
   });
 
   useEffect(() => {
