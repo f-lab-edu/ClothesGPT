@@ -39,6 +39,8 @@
     "clsx": "^1.2.1",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
+    "firebase": "^10.3.0",
+    "firebase-tools": "^12.5.2",
     "identity-obj-proxy": "^3.0.0",
     "immer": "^10.0.2",
     "next": "13.4.5",
