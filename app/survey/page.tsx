@@ -1,19 +1,12 @@
+import { fireStore } from '@/firebase';
+import { doc, getDoc } from 'firebase/firestore';
 import SurveyContainer from '@/components/survey/SurveyContainer';
-import prisma from '@/lib/prisma';
-import { Question } from '@/types/Survey';
 
 const Page = async () => {
-  const surveys = (await prisma.question.findMany({
-    select: {
-      choices: true,
-      choiceType: true,
-      question: true,
-      tag: true,
-      id: true,
-    },
-  })) as Question[];
+  const docRef = doc(fireStore, 'survey', 'userInfoSurvey');
+  const surveys = (await getDoc(docRef)).data();
 
-  return <SurveyContainer surveys={surveys} />;
+  return <SurveyContainer surveys={surveys?.data} />;
 };
 
 export default Page;
