@@ -58,13 +58,12 @@ function useSendUserFavoriteSurveyResult(
     UserFavoriteSurveyResult
   >,
 ) {
-  return useMutation(
-    (request: UserFavoriteSurveyResult) =>
+  return useMutation({
+    mutationFn: (request: UserFavoriteSurveyResult) =>
       openAIApi.chat([getSubmitSurveyMessage(request)]),
-    {
-      ...options,
-    },
-  );
+
+    ...options,
+  });
 }
 
 export default useSendUserFavoriteSurveyResult;

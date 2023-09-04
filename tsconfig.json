@@ -33,7 +33,7 @@
       "@/constant": ["./constant"],
       "@/hooks": ["./hooks"],
       "@/lib": ["./lib"],
-      "@/prisma": ["./prisma"],
+      "@/firebase": ["./firebase"],
       "@/types": ["./types"],
       "@/utils": ["./utils"]
     }
@@ -43,7 +43,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "custom.d.ts"
+    "custom.d.ts",
+    "firebase/index.js"
   ],
   "exclude": ["node_modules"]
 }
