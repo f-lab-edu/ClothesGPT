@@ -1,12 +1,14 @@
-import { fireStore } from '@/firebase';
-import { doc, getDoc } from 'firebase/firestore';
+'use client';
+
+import { Suspense } from 'react';
 import SurveyContainer from '@/components/survey/SurveyContainer';
 
 const Page = async () => {
-  const docRef = doc(fireStore, 'survey', 'userInfoSurvey');
-  const surveys = (await getDoc(docRef)).data();
-
-  return <SurveyContainer surveys={surveys?.data} />;
+  return (
+    <Suspense>
+      <SurveyContainer />
+    </Suspense>
+  );
 };
 
 export default Page;

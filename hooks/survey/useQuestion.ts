@@ -4,7 +4,7 @@ import { ChoiceUI, QuestionMessage } from '@/types/SurveyMessage';
 import { isEmpty } from '@/utils/survey/object/isEmpty';
 import { useAnswer } from './useAnswer';
 
-interface UseQuestionPrarams {
+interface UseQuestionParams {
   surveys: Question[];
   submit: (answer: Record<string, string>) => void;
 }
@@ -15,14 +15,16 @@ export interface UseQuestion {
   replay: () => void;
 }
 
-const useQuestion = ({ surveys, submit }: UseQuestionPrarams) => {
+const useQuestion = ({ surveys, submit }: UseQuestionParams) => {
   const [step, setStep] = useState(0);
   const [messages, setMessages] = useState<QuestionMessage[]>([]);
   const userAnswer = useAnswer(surveys);
 
   useEffect(() => {
-    nextStep();
-  }, [step]);
+    if (surveys && surveys.length > 0) {
+      nextStep();
+    }
+  }, [step, surveys]);
 
   const nextStep = () => {
     const nextSurvey = userAnswer.next();

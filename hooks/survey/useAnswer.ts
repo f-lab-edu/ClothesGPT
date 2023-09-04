@@ -41,7 +41,7 @@ export const useAnswer = (surveys: Question[]): UseAnswer => {
   };
 
   const next = (): QuestionUI | null => {
-    const filteringSurveys = tagFilter(surveys);
+    const filteringSurveys = tagFilter(surveys ?? []);
     if (filteringSurveys.length <= order) {
       return null;
     }

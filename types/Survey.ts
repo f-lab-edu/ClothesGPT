@@ -13,8 +13,6 @@ export interface Choice {
   value: Record<string, any>;
   tag?: Record<string, any>;
   inputType?: ChoiceComponentType;
-  questionId: string;
-  question: Question;
 }
 
 export interface Question {

@@ -1,28 +1,19 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import {
   ChatContainer,
   MainContainer,
   Message,
   MessageList,
 } from '@chatscope/chat-ui-kit-react';
-import { UserFavoriteSurveyResult } from '@/hooks/command/useSendUserFavoriteSurveyResult';
-import useQuestion from '@/hooks/survey/useQuestion';
-import { useUserFavoriteSurveyResult } from '@/hooks/survey/useUserFavoriteSurveyResult';
-import { Question } from '@/types/Survey';
+import useUserInfoSurvey from '@/hooks/survey/useUserInfoSurvey';
 import { SurveyComponent } from '@/utils/survey/convertSurveyComponent';
 import Trail from './Trail';
 
-const SurveyContainer = ({ surveys }: { surveys: Question[] }) => {
+const SurveyContainer = () => {
   const [open, setOpen] = useState(false);
-  const { sendSurvey } = useUserFavoriteSurveyResult();
-  const { messages, onClickQuestionChoice, isDisable } = useQuestion({
-    surveys,
-    submit: (answer) => {
-      sendSurvey(answer as Record<keyof UserFavoriteSurveyResult, string>);
-    },
-  });
+  const { messages, isDisable, onClickQuestionChoice } = useUserInfoSurvey();
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -37,25 +28,27 @@ const SurveyContainer = ({ surveys }: { surveys: Question[] }) => {
         <MainContainer className="!border-transparent cs-message-list__scroll-wrapper">
           <ChatContainer>
             <MessageList scrollBehavior="smooth">
-              {messages.map((message, i) => {
-                return (
-                  <Trail key={message.survey.id} open={open}>
-                    <Message
-                      model={message}
-                      type="custom"
-                      className="cs-message cs-message--incoming cs-message__content"
-                    >
-                      <Message.CustomContent>
-                        <SurveyComponent
-                          survey={message.survey}
-                          disabled={isDisable(i)}
-                          onClick={onClickQuestionChoice}
-                        />
-                      </Message.CustomContent>
-                    </Message>
-                  </Trail>
-                );
-              })}
+              <Suspense fallback={<div>loading...</div>}>
+                {messages.map((message, i) => {
+                  return (
+                    <Trail key={message.survey.id} open={open}>
+                      <Message
+                        model={message}
+                        type="custom"
+                        className="cs-message cs-message--incoming cs-message__content"
+                      >
+                        <Message.CustomContent>
+                          <SurveyComponent
+                            survey={message.survey}
+                            disabled={isDisable(i)}
+                            onClick={onClickQuestionChoice}
+                          />
+                        </Message.CustomContent>
+                      </Message>
+                    </Trail>
+                  );
+                })}
+              </Suspense>
             </MessageList>
           </ChatContainer>
         </MainContainer>
